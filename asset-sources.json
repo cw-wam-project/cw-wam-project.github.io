@@ -1,0 +1,30 @@
+{
+  "handoff": "CW-WAM_website_handoff",
+  "source_mappings": {
+    "assets/videos/peg.mp4": "01_essential/experiments/08_peg_comparison.mp4",
+    "assets/videos/peg-examples.mp4": "01_essential/experiments/09_peg_examples.mp4",
+    "assets/videos/adapter.mp4": "01_essential/experiments/11_adapter_comparison.mp4",
+    "assets/videos/adapter-repeated.mp4": "01_essential/experiments/13_adapter_repeated.mp4",
+    "assets/videos/wiping.mp4": "01_essential/experiments/15_wipe_comparison.mp4",
+    "assets/videos/ink-removal.mp4": "01_essential/experiments/17_ink_removal.mp4",
+    "assets/videos/transport.mp4": "01_essential/experiments/19_spring_comparison.mp4",
+    "assets/images/architecture.webp": "01_essential/images/fig02_model.png",
+    "assets/images/execution.webp": "01_essential/images/fig03_execution.png",
+    "assets/images/results.webp": "01_essential/images/fig04_task_results.png",
+    "assets/images/contact-profiles.webp": "01_essential/images/fig05_contact_profiles.png",
+    "assets/images/load-adaptation.webp": "01_essential/images/fig06_load_adaptation.png",
+    "assets/images/wrench-feedback.webp": "01_essential/images/fig07_wrench_feedback.png",
+    "assets/videos/peg-cw-wam.mp4": "02_supplementary/individual_trials/peg_insertion/cw_wam.mp4",
+    "assets/videos/adapter-cw-wam.mp4": "02_supplementary/individual_trials/adapter_insertion/cw_wam.mp4",
+    "assets/videos/wiping-cw-wam.mp4": "02_supplementary/individual_trials/whiteboard_wiping/cw_wam.mp4",
+    "assets/videos/transport-cw-wam.mp4": "02_supplementary/individual_trials/spring_transport/cw_wam.mp4",
+    "assets/videos/cw-wam-overview.mp4": "01_essential/video/project_video.mp4",
+    "assets/papers/cw-wam-paper.pdf": "01_essential/paper.pdf"
+  },
+  "notes": [
+    "Single-method clips preserve the supplied timing; no new success labels are assigned.",
+    "The handoff PDF is byte-identical to the previous hosted PDF.",
+    "transport-cw-wam.mp4 is remuxed with faststart; video frames and timing are unchanged."
+  ],
+  "asset_revision": "20260923-review1"
+}
