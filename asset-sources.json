@@ -18,13 +18,81 @@
     "assets/videos/adapter-cw-wam.mp4": "02_supplementary/individual_trials/adapter_insertion/cw_wam.mp4",
     "assets/videos/wiping-cw-wam.mp4": "02_supplementary/individual_trials/whiteboard_wiping/cw_wam.mp4",
     "assets/videos/transport-cw-wam.mp4": "02_supplementary/individual_trials/spring_transport/cw_wam.mp4",
-    "assets/videos/cw-wam-overview.mp4": "01_essential/video/project_video.mp4",
-    "assets/papers/cw-wam-paper.pdf": "01_essential/paper.pdf"
+    "assets/videos/cw-wam-overview.mp4": "02_supplementary/high_quality_video/project_video_hq.mp4",
+    "assets/papers/cw-wam-paper.pdf": "01_essential/paper.pdf",
+    "assets/videos/peg-wam.mp4": "02_supplementary/individual_trials/peg_insertion/wam.mp4",
+    "assets/videos/peg-wam-wrench.mp4": "02_supplementary/individual_trials/peg_insertion/wam_wrench.mp4",
+    "assets/videos/peg-cw-wam-admittance.mp4": "02_supplementary/individual_trials/peg_insertion/cw_wam_admittance.mp4",
+    "assets/videos/adapter-wam.mp4": "02_supplementary/individual_trials/adapter_insertion/wam.mp4",
+    "assets/videos/adapter-wam-wrench.mp4": "02_supplementary/individual_trials/adapter_insertion/wam_wrench.mp4",
+    "assets/videos/adapter-cw-wam-admittance.mp4": "02_supplementary/individual_trials/adapter_insertion/cw_wam_admittance.mp4",
+    "assets/videos/wiping-wam.mp4": "02_supplementary/individual_trials/whiteboard_wiping/wam.mp4",
+    "assets/videos/wiping-wam-wrench.mp4": "02_supplementary/individual_trials/whiteboard_wiping/wam_wrench.mp4",
+    "assets/videos/wiping-cw-wam-admittance.mp4": "02_supplementary/individual_trials/whiteboard_wiping/cw_wam_admittance.mp4",
+    "assets/videos/transport-wam.mp4": "02_supplementary/individual_trials/spring_transport/wam.mp4",
+    "assets/videos/transport-wam-wrench.mp4": "02_supplementary/individual_trials/spring_transport/wam_wrench.mp4",
+    "assets/data/peg-force-profiles.csv": "02_supplementary/plot_data/peg_insertion/force_profiles.csv",
+    "assets/data/wiping-force-profiles.csv": "02_supplementary/plot_data/whiteboard_wiping/force_profiles.csv",
+    "assets/images/peg-illustration.png": "01_essential/images/task1-peginhole.png",
+    "assets/images/adapter-illustration.png": "01_essential/images/task2-power-adapter-insertion.png",
+    "assets/images/wiping-illustration.png": "01_essential/images/task3-whiteboard-wiping.png",
+    "assets/images/transport-illustration.png": "01_essential/images/task2-spring-scale-transport.png"
   },
   "notes": [
     "Single-method clips preserve the supplied timing; no new success labels are assigned.",
     "The handoff PDF is byte-identical to the previous hosted PDF.",
-    "transport-cw-wam.mp4 is remuxed with faststart; video frames and timing are unchanged."
+    "transport-cw-wam.mp4 is remuxed with faststart; video frames and timing are unchanged.",
+    "Full presentation now uses the existing high-quality master; no generative upscaling.",
+    "Additional single-method videos are remuxed for progressive playback without re-encoding, timing changes, or inferred outcome labels.",
+    "Interactive profiles expand the reported Figure 5 results; they are not new experiments. Historical training counts are not exported.",
+    "The four hero task cards use the supplied task illustrations; source pixels are unchanged and CSS contains the entire artwork."
   ],
-  "asset_revision": "20260923-review1"
+  "asset_revision": "20260923-readable2",
+  "supplementary_sources": {
+    "assets/images/demonstration-setup.webp": "supplementary/figures/figS01_bilateral_teleoperation.png (relative to the paper folder)"
+  },
+  "derived_data": {
+    "assets/data/contact-profiles.json": "The two public force-profile CSVs; arrays contain progress, method Q25/median/Q75, then demonstration Q25/median/Q75. No resampling."
+  },
+  "derived_video_sources": {
+    "assets/videos/transport-repeated-wam.mp4": {
+      "files": [
+        "02_supplementary/individual_trials/spring_repeated/wam/trial-01_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam/trial-02_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam/trial-03_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam/trial-04_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam/trial-05_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam/trial-06_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam/trial-07_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam/trial-08_lift_transport.mp4"
+      ],
+      "operation": "Concatenate supplied trials 01\u201308 in order without re-encoding; original 8x playback preserved."
+    },
+    "assets/videos/transport-repeated-wam-wrench.mp4": {
+      "files": [
+        "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-01_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-02_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-03_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-04_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-05_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-06_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-07_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-08_lift_transport.mp4"
+      ],
+      "operation": "Concatenate supplied trials 01\u201308 in order without re-encoding; original 8x playback preserved."
+    },
+    "assets/videos/transport-repeated-cw-wam.mp4": {
+      "files": [
+        "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-01_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-02_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-03_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-04_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-05_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-06_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-07_lift_transport.mp4",
+        "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-08_lift_transport.mp4"
+      ],
+      "operation": "Concatenate supplied trials 01\u201308 in order without re-encoding; original 8x playback preserved."
+    }
+  }
 }

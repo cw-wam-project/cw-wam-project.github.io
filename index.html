@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="CW-WAM jointly predicts motion and contact wrench, using predicted wrench references for force-sensitive robot manipulation.">
-  <meta name="theme-color" content="#f7f9f5">
+  <meta name="theme-color" content="#fcfdfe">
   <meta property="og:title" content="CW-WAM · Contact-Wrench World Action Model">
   <meta property="og:description" content="Structured action–wrench prediction. Force feedback. Four real-world manipulation tasks.">
   <meta property="og:type" content="website">
@@ -12,9 +12,9 @@
   <meta property="og:url" content="https://cw-wam-project.github.io/">
   <meta property="og:image:alt" content="CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation">
   <title>CW-WAM · Contact-Wrench World Action Model</title>
-  <link rel="icon" href="assets/favicon.svg?v=20260923-review1" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260923-review1">
-  <script src="script.js?v=20260923-review1" defer></script>
+  <link rel="icon" href="assets/favicon.svg?v=20260923-readable2" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260925-illustrations1">
+  <script src="script.js?v=20260924-threeviews1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -22,7 +22,7 @@
     <nav class="nav wrap" aria-label="Main navigation">
       <a class="wordmark" href="#" aria-label="CW-WAM home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>CW-WAM</a>
       <div class="nav-links"><a href="#demos">Demos</a><a href="#method">Method</a><a href="#results">Results</a></div>
-      <a class="nav-paper" href="assets/papers/cw-wam-paper.pdf?v=20260923-review1" target="_blank" rel="noopener">Read paper <span aria-hidden="true">↗</span></a>
+      <a class="nav-paper" href="assets/papers/cw-wam-paper.pdf?v=20260923-readable2" target="_blank" rel="noopener">Read paper <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
   <main id="main">
@@ -33,63 +33,96 @@
       <p class="authors">Anonymous Authors</p>
       <p class="hero-description">Predicting how to move <em>and</em> what contact should feel like.<br> Paired motion–wrench predictions connect learned planning to force feedback.</p>
       <div class="hero-actions">
-        <a class="button primary" href="assets/papers/cw-wam-paper.pdf?v=20260923-review1" target="_blank" rel="noopener"><span aria-hidden="true">↗</span> Paper</a>
+        <a class="button primary" href="assets/papers/cw-wam-paper.pdf?v=20260923-readable2" target="_blank" rel="noopener"><span aria-hidden="true">↗</span> Paper</a>
         <a class="button secondary" href="#overview"><span aria-hidden="true">▷</span> Watch video <span class="button-note">3 min</span></a>
       </div>
       <div class="hero-grid" aria-label="Explore the four tasks">
-        <a class="hero-tile" href="#demos" data-task="peg"><img src="assets/images/peg-hero.webp?v=20260923-review1" alt="Robot inserting a square peg into an orange socket" width="960" height="540"><span><b>01</b> Square peg insertion <i aria-hidden="true">↗</i></span></a>
-        <a class="hero-tile" href="#demos" data-task="adapter"><img src="assets/images/adapter-hero.webp?v=20260923-review1" alt="Robot inserting a power adapter into a power strip" width="960" height="540"><span><b>02</b> Adapter insertion <i aria-hidden="true">↗</i></span></a>
-        <a class="hero-tile" href="#demos" data-task="wiping"><img src="assets/images/wiping-hero.webp?v=20260923-review1" alt="Robot wiping marker traces from a whiteboard" width="960" height="540"><span><b>03</b> Whiteboard wiping <i aria-hidden="true">↗</i></span></a>
-        <a class="hero-tile" href="#demos" data-task="transport"><img src="assets/images/transport-hero.webp?v=20260923-review1" alt="Robot lifting a box suspended from a spring scale" width="960" height="540"><span><b>04</b> Spring-scale transport <i aria-hidden="true">↗</i></span></a>
+        <a class="hero-tile" href="#task-peg"><img class="task-illustration" src="assets/images/peg-illustration.png?v=20260925-illustrations1" alt="Illustration of square peg insertion with 1 mm clearance per side" width="1472" height="1696"><span><b>01</b> Square peg insertion <i aria-hidden="true">↗</i></span></a>
+        <a class="hero-tile" href="#task-adapter"><img class="task-illustration" src="assets/images/adapter-illustration.png?v=20260925-illustrations1" alt="Illustration of a power adapter being inserted into a socket" width="1086" height="1448"><span><b>02</b> Adapter insertion <i aria-hidden="true">↗</i></span></a>
+        <a class="hero-tile" href="#task-wiping"><img class="task-illustration" src="assets/images/wiping-illustration.png?v=20260925-illustrations1" alt="Illustration of an eraser wiping a marker trace from a whiteboard" width="1402" height="1122"><span><b>03</b> Whiteboard wiping <i aria-hidden="true">↗</i></span></a>
+        <a class="hero-tile" href="#task-transport"><img class="task-illustration" src="assets/images/transport-illustration.png?v=20260925-illustrations1" alt="Illustration of lifting and transporting a box suspended from a spring scale" width="1122" height="1402"><span><b>04</b> Spring-scale transport <i aria-hidden="true">↗</i></span></a>
       </div>
       <p class="hero-caption">Four tasks. Different interaction demands. A shared motion–wrench model.</p>
     </section>
 
     <section class="metrics-band" aria-label="Key experimental results">
       <div class="metrics wrap">
-        <div class="metric"><p class="metric-label">Square peg insertion</p><p class="metric-number"><span>25%</span><i>→</i>70%</p><p>WAM → CW-WAM · 20 trials per method</p></div>
-        <div class="metric"><p class="metric-label">Power-adapter insertion</p><p class="metric-number"><span>40%</span><i>→</i>95%</p><p>WAM → CW-WAM · 20 trials per method</p></div>
-        <div class="metric"><p class="metric-label">Peg force-reference RMSE</p><p class="metric-number"><span>4.84</span><i>→</i>2.75<small>N</small></p><p>CW-WAM → + admittance · successful trials</p></div>
+        <div class="metric"><p class="metric-label">Square peg insertion</p><p class="metric-number"><span class="value-wam">25%</span><i>→</i><b class="value-cw">70%</b></p><p>WAM → CW-WAM · 20 trials per method</p></div>
+        <div class="metric"><p class="metric-label">Power-adapter insertion</p><p class="metric-number"><span class="value-wam">40%</span><i>→</i><b class="value-cw">95%</b></p><p>WAM → CW-WAM · 20 trials per method</p></div>
+        <div class="metric"><p class="metric-label">Peg force-reference RMSE</p><p class="metric-number"><span class="value-cw">4.84</span><i>→</i><b class="value-adm">2.75</b><small>N</small></p><p>CW-WAM → + admittance · successful trials</p></div>
       </div>
     </section>
 
     <section id="demos" class="section wrap" aria-labelledby="demos-title">
       <div class="section-heading"><div><p class="eyebrow">01 / On the robot</p><h2 id="demos-title">Contact changes the task.</h2></div><p>Precise alignment, sustained contact, and changing loads each call for a different response.</p></div>
-      <div class="task-tabs" role="tablist" aria-label="Robot tasks">
-        <button id="tab-peg" role="tab" aria-selected="true" aria-controls="task-panel" data-task="peg">Square peg</button>
-        <button id="tab-adapter" role="tab" aria-selected="false" aria-controls="task-panel" tabindex="-1" data-task="adapter">Power adapter</button>
-        <button id="tab-wiping" role="tab" aria-selected="false" aria-controls="task-panel" tabindex="-1" data-task="wiping">Whiteboard</button>
-        <button id="tab-transport" role="tab" aria-selected="false" aria-controls="task-panel" tabindex="-1" data-task="transport">Spring scale</button>
-      </div>
-      <div id="task-panel" class="task-panel" role="tabpanel" aria-labelledby="tab-peg" tabindex="0">
-        <div class="task-player">
-          <div class="video-modes" role="group" aria-label="Task video view">
-            <span>View</span>
-            <button type="button" data-view="comparison" aria-pressed="true">Method comparison</button>
-            <button type="button" data-view="single" aria-pressed="false">CW-WAM single view</button>
-          </div>
-          <video id="task-video" muted controls playsinline preload="none" poster="assets/images/peg-poster.jpg?v=20260923-review1" width="1920" height="1080" aria-label="Square peg insertion comparison"><source src="assets/videos/peg.mp4?v=20260923-review1" type="video/mp4">Your browser does not support embedded video. <a href="assets/videos/peg.mp4?v=20260923-review1">Download the peg video.</a></video><p id="task-media-note" class="media-note">Method comparison · playback speeds and curve definitions are labeled in the video.</p></div>
-        <div class="task-copy"><p id="task-kicker" class="eyebrow">Tight-clearance contact</p><h3 id="task-title">Square peg insertion</h3><p id="task-description">A 38 mm square peg enters a 40 mm square hole, leaving 1 mm clearance per side. Alignment and contact-guided adjustment matter throughout insertion.</p><div class="task-insight"><span>What to look for</span><p id="task-observation">Compare contact search and seating across methods, then observe force feedback with CW-WAM + admittance.</p></div><p id="task-stat" class="task-stat">5/20 → 14/20 <span>insertions · WAM → CW-WAM</span></p></div>
-      </div>
-      <noscript><style>.task-tabs,.video-modes{display:none}</style><p>Additional task videos: <a href="assets/videos/adapter.mp4?v=20260923-review1">Power adapter</a> · <a href="assets/videos/wiping.mp4?v=20260923-review1">Whiteboard wiping</a> · <a href="assets/videos/transport.mp4?v=20260923-review1">Spring-scale transport</a>.</p></noscript>
+      <div class="method-legend" aria-label="Method color key"><span data-method-color="wam">WAM</span><span data-method-color="wam_wrench">WAM + Wrench</span><span data-method-color="cw_wam">CW-WAM</span><span data-method-color="cw_wam_admittance">CW-WAM + Adm.</span></div>
+      <p class="media-note legend-note">Adm. = admittance feedback. Single-method view opens each prepared example at full size.</p>
+      <nav class="task-jumps" aria-label="Jump to a task"><a href="#task-peg">Square peg</a><a href="#task-adapter">Power adapter</a><a href="#task-wiping">Whiteboard</a><a href="#task-transport">Spring scale</a></nav>
 
-      <div class="additional-demos" aria-labelledby="additional-demos-title">
-        <div class="additional-heading"><div><p class="eyebrow">A closer look</p><h3 id="additional-demos-title">Outcomes, repeated trials, and varied patterns.</h3></div><p>Explore the contact behaviors behind the headline results.</p></div>
-        <div class="demo-gallery">
-          <article class="demo-card">
-            <video controls muted playsinline preload="none" poster="assets/images/peg-examples-poster.jpg?v=20260923-review1" width="1920" height="1080" aria-label="Peg insertion failure and success examples"><source src="assets/videos/peg-examples.mp4?v=20260923-review1" type="video/mp4"><a href="assets/videos/peg-examples.mp4?v=20260923-review1">Download peg examples.</a></video>
-            <div class="demo-card-copy"><span class="demo-tag">Square peg · four methods</span><h4>Failure and successful insertion</h4><p>Compare the peg–hole relationship at the end of individual failed and successful attempts. The core actions play at 5×.</p><a href="assets/videos/peg-examples.mp4?v=20260923-review1" target="_blank" rel="noopener">Open full-size video ↗</a></div>
-          </article>
-          <article class="demo-card">
-            <video controls muted playsinline preload="none" poster="assets/images/adapter-repeated-poster.jpg?v=20260923-review1" width="1920" height="1080" aria-label="Twenty consecutive CW-WAM power-adapter insertion attempts"><source src="assets/videos/adapter-repeated.mp4?v=20260923-review1" type="video/mp4"><a href="assets/videos/adapter-repeated.mp4?v=20260923-review1">Download repeated adapter trials.</a></video>
-            <div class="demo-card-copy"><span class="demo-tag">Power adapter · CW-WAM</span><h4>20 consecutive attempts</h4><p>See repeated execution across the evaluation sequence, with successful insertion in 19 of 20 attempts.</p><a href="assets/videos/adapter-repeated.mp4?v=20260923-review1" target="_blank" rel="noopener">Open full-size video ↗</a></div>
-          </article>
-          <article class="demo-card">
-            <video controls muted playsinline preload="none" poster="assets/images/ink-removal-poster.jpg?v=20260923-review1" width="1920" height="1080" aria-label="CW-WAM wiping six marker patterns with measured ink-removal rates"><source src="assets/videos/ink-removal.mp4?v=20260923-review1" type="video/mp4"><a href="assets/videos/ink-removal.mp4?v=20260923-review1">Download six-pattern wiping.</a></video>
-            <div class="demo-card-copy"><span class="demo-tag">Whiteboard · CW-WAM</span><h4>Six patterns, 85.9% mean removal</h4><p>Lines, curves, and letters reveal differences in surface coverage. Removal percentages compare the initial and remaining ink areas for these six selected patterns.</p><a href="assets/videos/ink-removal.mp4?v=20260923-review1" target="_blank" rel="noopener">Open full-size video ↗</a></div>
-          </article>
+      <article id="task-peg" class="task-demo" data-task-panel="peg" aria-labelledby="peg-title">
+        <header class="task-heading"><p class="eyebrow">Task 01 / Tight-clearance contact</p><h3 id="peg-title">Square peg insertion</h3></header>
+        <div class="task-panel">
+          <div class="task-player">
+            <div class="task-video-tools">
+              <div class="video-modes" role="group" aria-label="Square peg insertion: video view"><button type="button" data-view="comparison" aria-pressed="true">Method comparison</button><button type="button" data-view="single" aria-pressed="false">Single-method view</button><button type="button" data-view="more" aria-pressed="false">More experiment videos</button></div>
+            </div>
+            <div class="method-controls single-method-controls" role="group" aria-label="Square peg insertion: choose a method" hidden><button type="button" data-method="wam" aria-pressed="false">WAM</button><button type="button" data-method="wam_wrench" aria-pressed="false">WAM + Wrench</button><button type="button" data-method="cw_wam" aria-pressed="true">CW-WAM</button><button type="button" data-method="cw_wam_admittance" aria-pressed="false">CW-WAM + Adm.</button></div>
+            <video class="task-video" id="peg-video" muted controls playsinline preload="none" poster="assets/images/peg-poster.jpg?v=20260923-readable2" width="1920" height="1080" aria-label="Square peg insertion comparison"><source src="assets/videos/peg.mp4?v=20260923-readable2" type="video/mp4"><a href="assets/videos/peg.mp4">Download the square peg insertion video.</a></video>
+            <p class="media-note task-media-note">Method comparison · playback speeds and curve definitions are labeled in the video.</p>
+          </div>
+          <div class="task-copy"><p>A 38 mm square peg enters a 40 mm square hole, leaving 1 mm clearance per side. Alignment and contact-guided adjustment matter throughout insertion.</p><div class="task-insight"><span>What to look for</span><p class="task-observation">Compare contact search and seating across methods, then observe force feedback with CW-WAM + admittance.</p></div><p class="task-stat">5/20 → 14/20 <span>insertions · WAM → CW-WAM</span></p></div>
         </div>
-      </div>
+        <noscript><p>More experiment videos: <a href="assets/videos/peg-examples.mp4">peg examples</a></p></noscript>
+      </article>
+
+      <article id="task-adapter" class="task-demo" data-task-panel="adapter" aria-labelledby="adapter-title">
+        <header class="task-heading"><p class="eyebrow">Task 02 / Alignment and firm seating</p><h3 id="adapter-title">Power-adapter insertion</h3></header>
+        <div class="task-panel">
+          <div class="task-player">
+            <div class="task-video-tools">
+              <div class="video-modes" role="group" aria-label="Power-adapter insertion: video view"><button type="button" data-view="comparison" aria-pressed="true">Method comparison</button><button type="button" data-view="single" aria-pressed="false">Single-method view</button><button type="button" data-view="more" aria-pressed="false">More experiment videos</button></div>
+            </div>
+            <div class="method-controls single-method-controls" role="group" aria-label="Power-adapter insertion: choose a method" hidden><button type="button" data-method="wam" aria-pressed="false">WAM</button><button type="button" data-method="wam_wrench" aria-pressed="false">WAM + Wrench</button><button type="button" data-method="cw_wam" aria-pressed="true">CW-WAM</button><button type="button" data-method="cw_wam_admittance" aria-pressed="false">CW-WAM + Adm.</button></div>
+            <video class="task-video" id="adapter-video" muted controls playsinline preload="none" poster="assets/images/adapter-poster.jpg?v=20260923-readable2" width="1920" height="1080" aria-label="Power-adapter insertion comparison"><source src="assets/videos/adapter.mp4?v=20260923-readable2" type="video/mp4"><a href="assets/videos/adapter.mp4">Download the power-adapter insertion video.</a></video>
+            <p class="media-note task-media-note">Method comparison · playback speeds and curve definitions are labeled in the video.</p>
+          </div>
+          <div class="task-copy"><p>The robot grasps a loosely placed adapter, inserts it firmly into another socket, and releases it. Successful insertion and successful release are distinct outcomes.</p><div class="task-insight"><span>What to look for</span><p class="task-observation">Watch the approach, contact adjustment, and final seating. The comparison includes WAM, WAM + Wrench, CW-WAM, and CW-WAM + admittance.</p></div><p class="task-stat">8/20 → 19/20 <span>insertions · WAM → CW-WAM</span></p></div>
+        </div>
+        <noscript><p>More experiment videos: <a href="assets/videos/adapter-repeated.mp4">adapter repeated</a></p></noscript>
+      </article>
+
+      <article id="task-wiping" class="task-demo" data-task-panel="wiping" aria-labelledby="wiping-title">
+        <header class="task-heading"><p class="eyebrow">Task 03 / Sustained contact</p><h3 id="wiping-title">Whiteboard wiping</h3></header>
+        <div class="task-panel">
+          <div class="task-player">
+            <div class="task-video-tools">
+              <div class="video-modes" role="group" aria-label="Whiteboard wiping: video view"><button type="button" data-view="comparison" aria-pressed="true">Method comparison</button><button type="button" data-view="single" aria-pressed="false">Single-method view</button><button type="button" data-view="more" aria-pressed="false">More experiment videos</button></div>
+            </div>
+            <div class="method-controls single-method-controls" role="group" aria-label="Whiteboard wiping: choose a method" hidden><button type="button" data-method="wam" aria-pressed="false">WAM</button><button type="button" data-method="wam_wrench" aria-pressed="false">WAM + Wrench</button><button type="button" data-method="cw_wam" aria-pressed="true">CW-WAM</button><button type="button" data-method="cw_wam_admittance" aria-pressed="false">CW-WAM + Adm.</button></div>
+            <video class="task-video" id="wiping-video" muted controls playsinline preload="none" poster="assets/images/wiping-poster.jpg?v=20260923-readable2" width="1920" height="1080" aria-label="Whiteboard wiping comparison"><source src="assets/videos/wiping.mp4?v=20260923-readable2" type="video/mp4"><a href="assets/videos/wiping.mp4">Download the whiteboard wiping video.</a></video>
+            <p class="media-note task-media-note">Method comparison · playback speeds and curve definitions are labeled in the video.</p>
+          </div>
+          <div class="task-copy"><p>The robot maintains contact while wiping marker traces. All evaluated methods remove the simple test patterns in 20/20 trials, allowing the comparison to focus on force regulation.</p><div class="task-insight"><span>What to look for</span><p class="task-observation">Compare contact-force behavior during wiping, particularly CW-WAM with and without admittance feedback.</p></div><p class="task-stat">1.99 → 1.34 N <span>force-reference RMSE · CW-WAM → + admittance</span></p></div>
+        </div>
+        <noscript><p>More experiment videos: <a href="assets/videos/ink-removal.mp4">ink removal</a></p></noscript>
+      </article>
+
+      <article id="task-transport" class="task-demo" data-task-panel="transport" aria-labelledby="transport-title">
+        <header class="task-heading"><p class="eyebrow">Task 04 / Load-dependent motion</p><h3 id="transport-title">Spring-scale transport</h3></header>
+        <div class="task-panel">
+          <div class="task-player">
+            <div class="task-video-tools">
+              <div class="video-modes" role="group" aria-label="Spring-scale transport: video view"><button type="button" data-view="comparison" aria-pressed="true">Method comparison</button><button type="button" data-view="single" aria-pressed="false">Single-method view</button><button type="button" data-view="more" aria-pressed="false">More experiment videos</button></div>
+            </div>
+            <div class="method-controls single-method-controls" role="group" aria-label="Spring-scale transport: choose a method" hidden><button type="button" data-method="wam" aria-pressed="false">WAM</button><button type="button" data-method="wam_wrench" aria-pressed="false">WAM + Wrench</button><button type="button" data-method="cw_wam" aria-pressed="true">CW-WAM</button></div>
+            <video class="task-video" id="transport-video" muted controls playsinline preload="none" poster="assets/images/transport-poster.jpg?v=20260923-readable2" width="1920" height="1080" aria-label="Spring-scale transport comparison"><source src="assets/videos/transport.mp4?v=20260923-readable2" type="video/mp4"><a href="assets/videos/transport.mp4">Download the spring-scale transport video.</a></video>
+            <p class="media-note task-media-note">Method comparison · playback speeds and curve definitions are labeled in the video.</p>
+          </div>
+          <div class="task-copy"><p>Visually identical 30 g and 830 g boxes hang from a spring scale. The heavier box stretches the scale farther, requiring a higher lift to clear the bin edge.</p><div class="task-insight"><span>What to look for</span><p class="task-observation">Watch how lifting height changes with sensed load. The excerpt includes heavy-load comparisons and repeated trials.</p></div><p class="task-stat">30 g / 830 g <span>light and heavy loads · identical appearance</span></p></div>
+        </div>
+        <noscript><p>More experiment videos: <a href="assets/videos/transport-repeated-wam.mp4">transport repeated wam</a> · <a href="assets/videos/transport-repeated-wam-wrench.mp4">transport repeated wam wrench</a> · <a href="assets/videos/transport-repeated-cw-wam.mp4">transport repeated cw wam</a></p></noscript>
+      </article>
+      <noscript><style>.task-video-tools{display:none}</style></noscript>
 
     </section>
 
@@ -101,8 +134,16 @@
           <article><span class="step-number">02</span><h3>Predict paired references</h3><p>Separate motion and wrench tokens, heads, and losses produce time-aligned chunks: a nominal motion plan and its expected contact wrench.</p></article>
           <article><span class="step-number">03</span><h3>Keep feedback active</h3><p>Use predicted wrench references for 20 Hz admittance corrections, with smooth trajectory tracking by a 1 kHz robot controller between model queries.</p></article>
         </div>
-        <figure class="architecture-figure"><a href="assets/images/architecture.webp?v=20260923-review1" target="_blank" rel="noopener" aria-label="Open model architecture at full size"><img src="assets/images/architecture.webp?v=20260923-review1" alt="CW-WAM architecture: visual, language, state and action–wrench history inputs feed joint video–action–wrench denoising, producing paired action and wrench chunks for execution" loading="lazy" width="2600" height="1333"></a><figcaption><span>Model architecture</span> Recent paired history and longer wrench memory support structured future prediction. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-review1#page=2" target="_blank" rel="noopener">Figure 2 in the paper ↗</a></figcaption></figure>
-        <div class="execution-grid"><div class="execution-copy"><p class="eyebrow">From prediction to feedback</p><h3>Slow planning.<br>Responsive execution.</h3><p>The controller compares measured and predicted wrench, corrects the nominal pose, and interpolates the resulting waypoints into a continuous trajectory.</p><div class="rate-flow"><span><strong>Model</strong>Paired chunks</span><i aria-hidden="true">→</i><span><strong>20 Hz</strong>Admittance</span><i aria-hidden="true">→</i><span><strong>1 kHz</strong>Robot control</span></div></div><figure class="execution-figure"><a href="assets/images/execution.webp?v=20260923-review1" target="_blank" rel="noopener" aria-label="Open slow–fast control diagram at full size"><img src="assets/images/execution.webp?v=20260923-review1" alt="Paired references enter a 20 Hz admittance loop, followed by continuous joint trajectories and 1 kHz joint-impedance tracking" loading="lazy" width="2600" height="2404"></a><figcaption>Slow–fast control · Figure 3</figcaption></figure></div>
+        <figure class="architecture-figure"><a href="assets/images/architecture.webp?v=20260923-readable2" target="_blank" rel="noopener" aria-label="Open model architecture at full size"><img src="assets/images/architecture.webp?v=20260923-readable2" alt="CW-WAM architecture: visual, language, state and action–wrench history inputs feed joint video–action–wrench denoising, producing paired action and wrench chunks for execution" loading="lazy" width="2600" height="1333"></a><figcaption><span>Model architecture</span> Recent paired history and longer wrench memory support structured future prediction. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-readable2#page=2" target="_blank" rel="noopener">Figure 2 in the paper ↗</a></figcaption></figure>
+        <div class="execution-grid"><div class="execution-copy"><p class="eyebrow">From prediction to feedback</p><h3>Slow planning.<br>Responsive execution.</h3><p>The controller compares measured and predicted wrench, corrects the nominal pose, and interpolates the resulting waypoints into a continuous trajectory.</p><div class="rate-flow"><span><strong>Model</strong>Paired chunks</span><i aria-hidden="true">→</i><span><strong>20 Hz</strong>Admittance</span><i aria-hidden="true">→</i><span><strong>1 kHz</strong>Robot control</span></div></div><figure class="execution-figure"><a href="assets/images/execution.webp?v=20260923-readable2" target="_blank" rel="noopener" aria-label="Open slow–fast control diagram at full size"><img src="assets/images/execution.webp?v=20260923-readable2" alt="Paired references enter a 20 Hz admittance loop, followed by continuous joint trajectories and 1 kHz joint-impedance tracking" loading="lazy" width="2600" height="2404"></a><figcaption>Slow–fast control · Figure 3</figcaption></figure></div>
+
+        <details class="results-details setup-details">
+          <summary>How demonstrations are collected <span>Hardware &amp; bilateral teleoperation <i aria-hidden="true">+</i></span></summary>
+          <div class="setup-content">
+            <figure><a href="assets/images/demonstration-setup.webp" target="_blank" rel="noopener"><img src="assets/images/demonstration-setup.webp" alt="Two Franka arms in a leader–follower demonstration setup, with three RGB cameras, a wrist force/torque sensor, and a diagram of joint-position commands and reflected torque feedback" loading="lazy" width="1507" height="1562"></a><figcaption>Bilateral teleoperation setup. Click to enlarge.</figcaption></figure>
+            <div><h3>Demonstrate motion while feeling contact.</h3><p>The follower tracks the leader’s joint positions. Estimated external joint torques are reflected to the damped leader through bounded feedback, allowing the operator to feel the interaction.</p><p>Three RGB views and a wrist-mounted six-axis force/torque sensor record visual observations and interaction wrench for learning.</p></div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -113,18 +154,38 @@
         <article><span class="result-symbol" aria-hidden="true">≈</span><h3>Closer force tracking</h3><p>Adding admittance to CW-WAM reduces force-reference RMSE from 4.84 to 2.75 N for peg insertion and from 1.99 to 1.34 N for wiping, measured over successful trials.</p></article>
         <article><span class="result-symbol" aria-hidden="true">↥</span><h3>Motion that reflects load</h3><p>Visually similar light and heavy loads stretch the spring scale differently. CW-WAM adjusts lifting motion to sensed load, improving lifting-height accuracy.</p></article>
       </div>
-      <details class="results-details" open><summary>Task outcomes and execution quality <span>View the paper figure <i aria-hidden="true">+</i></span></summary><figure><a href="assets/images/results.webp?v=20260923-review1" target="_blank" rel="noopener" aria-label="Open experimental results at full size"><img src="assets/images/results.webp?v=20260923-review1" alt="Figure 4 compares insertion and release success, force-reference RMSE, predicted versus demonstration RMSE, force variation, and position tracking across five methods for peg insertion, adapter insertion, and wiping" loading="lazy" width="2600" height="1839"></a><figcaption>20 trials per method per contact task. Hatched success bars indicate release. Quality metrics distinguish all trials from successful subsets; these groups coincide for wiping. Continuous-valued results are summarized by medians. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-review1#page=6" target="_blank" rel="noopener">See Figure 4 and evaluation definitions ↗</a></figcaption></figure></details>
+      <details class="results-details" open><summary>Task outcomes and execution quality <span>View the paper figure <i aria-hidden="true">+</i></span></summary><figure><a href="assets/images/results.webp?v=20260923-readable2" target="_blank" rel="noopener" aria-label="Open experimental results at full size"><img src="assets/images/results.webp?v=20260923-readable2" alt="Figure 4 compares insertion and release success, force-reference RMSE, predicted versus demonstration RMSE, force variation, and position tracking across five methods for peg insertion, adapter insertion, and wiping" loading="lazy" width="2600" height="1839"></a><figcaption>20 trials per method per contact task. Hatched success bars indicate release. Quality metrics distinguish all trials from successful subsets; these groups coincide for wiping. Continuous-valued results are summarized by medians. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-readable2#page=6" target="_blank" rel="noopener">See Figure 4 and evaluation definitions ↗</a></figcaption></figure></details>
 
       <div class="additional-results">
-        <details class="results-details"><summary>Contact-force profiles<span>Figure 5 <i aria-hidden="true">+</i></span></summary><figure><a href="assets/images/contact-profiles.webp?v=20260923-review1" target="_blank" rel="noopener" aria-label="Open contact-force profiles at full size"><img src="assets/images/contact-profiles.webp?v=20260923-review1" alt="Measured contact-force profiles for wiping, peg insertion and adapter insertion, compared with demonstration profiles" loading="lazy" width="2065" height="1826"></a><figcaption>Task-phase force profiles show how contact evolves through wiping, search, and seating. Method curves summarize successful trials aligned by contact phase; adapter unloading includes trials with successful release. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-review1#page=7" target="_blank" rel="noopener">Figure 5 in the paper ↗</a></figcaption></figure></details>
-        <details class="results-details"><summary>Adapting lifting height to load<span>Figure 6 <i aria-hidden="true">+</i></span></summary><figure><a href="assets/images/load-adaptation.webp?v=20260923-review1" target="_blank" rel="noopener" aria-label="Open adapting lifting height to load at full size"><img src="assets/images/load-adaptation.webp?v=20260923-review1" alt="Light- and heavy-load lifting trajectories and peak-height summaries for WAM, WAM plus wrench and CW-WAM" loading="lazy" width="1957" height="1655"></a><figcaption>Representative trajectories illustrate lifting behavior for the two loads. Peak-height summaries compare repeated trials, while the bin-rim line marks the clearance needed for transport. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-review1#page=7" target="_blank" rel="noopener">Figure 6 in the paper ↗</a></figcaption></figure></details>
-        <details class="results-details"><summary>Using predicted wrench as feedback<span>Figure 7 <i aria-hidden="true">+</i></span></summary><figure><a href="assets/images/wrench-feedback.webp?v=20260923-review1" target="_blank" rel="noopener" aria-label="Open using predicted wrench as feedback at full size"><img src="assets/images/wrench-feedback.webp?v=20260923-review1" alt="Peg insertion and wiping under no tracking, demonstration-reference tracking and predicted-wrench tracking, with force and torque variation" loading="lazy" width="2018" height="2577"></a><figcaption>The feedback comparison separates no wrench tracking, a demonstration-derived reference, and the predicted reference. Displayed example traces are selected near the group median force variation; aggregate bars summarize 10 trials per condition. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-review1#page=8" target="_blank" rel="noopener">Figure 7 in the paper ↗</a></figcaption></figure></details>
+        <details class="results-details"><summary>Contact-force profiles<span>Figure 5 <i aria-hidden="true">+</i></span></summary><figure><a href="assets/images/contact-profiles.webp?v=20260923-readable2" target="_blank" rel="noopener" aria-label="Open contact-force profiles at full size"><img src="assets/images/contact-profiles.webp?v=20260923-readable2" alt="Measured contact-force profiles for wiping, peg insertion and adapter insertion, compared with demonstration profiles" loading="lazy" width="2065" height="1826"></a><figcaption>Task-phase force profiles show how contact evolves through wiping, search, and seating. Method curves summarize successful trials aligned by contact phase; adapter unloading includes trials with successful release. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-readable2#page=7" target="_blank" rel="noopener">Figure 5 in the paper ↗</a></figcaption></figure></details>
+        <details class="results-details"><summary>Adapting lifting height to load<span>Figure 6 <i aria-hidden="true">+</i></span></summary><figure><a href="assets/images/load-adaptation.webp?v=20260923-readable2" target="_blank" rel="noopener" aria-label="Open adapting lifting height to load at full size"><img src="assets/images/load-adaptation.webp?v=20260923-readable2" alt="Light- and heavy-load lifting trajectories and peak-height summaries for WAM, WAM plus wrench and CW-WAM" loading="lazy" width="1957" height="1655"></a><figcaption>Representative trajectories illustrate lifting behavior for the two loads. Peak-height summaries compare repeated trials, while the bin-rim line marks the clearance needed for transport. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-readable2#page=7" target="_blank" rel="noopener">Figure 6 in the paper ↗</a></figcaption></figure></details>
+        <details class="results-details"><summary>Using predicted wrench as feedback<span>Figure 7 <i aria-hidden="true">+</i></span></summary><figure><a href="assets/images/wrench-feedback.webp?v=20260923-readable2" target="_blank" rel="noopener" aria-label="Open using predicted wrench as feedback at full size"><img src="assets/images/wrench-feedback.webp?v=20260923-readable2" alt="Peg insertion and wiping under no tracking, demonstration-reference tracking and predicted-wrench tracking, with force and torque variation" loading="lazy" width="2018" height="2577"></a><figcaption>The feedback comparison separates no wrench tracking, a demonstration-derived reference, and the predicted reference. Displayed example traces are selected near the group median force variation; aggregate bars summarize 10 trials per condition. <a href="assets/papers/cw-wam-paper.pdf?v=20260923-readable2#page=8" target="_blank" rel="noopener">Figure 7 in the paper ↗</a></figcaption></figure></details>
+      </div>
+
+      <div class="profile-explorer" id="profile-explorer" aria-labelledby="profiles-title">
+        <div class="additional-heading"><div><p class="eyebrow">Explore the measurements</p><h3 id="profiles-title">A closer look at contact force.</h3></div><p>Toggle methods to compare the measured force profiles behind Figure 5.</p></div>
+        <div class="profile-toolbar">
+          <label for="profile-task">Task <select id="profile-task"><option value="peg">Square peg insertion</option><option value="wiping">Whiteboard wiping</option></select></label>
+          <label class="band-toggle"><input type="checkbox" id="profile-bands"> Show interquartile ranges</label>
+        </div>
+        <div id="profile-methods" class="method-controls" role="group" aria-label="Toggle force curves">
+          <button type="button" data-curve="wam" data-method-color="wam" aria-pressed="true">WAM</button>
+          <button type="button" data-curve="wam_wrench" data-method-color="wam_wrench" aria-pressed="true">WAM + Wrench</button>
+          <button type="button" data-curve="cw_wam" data-method-color="cw_wam" aria-pressed="true">CW-WAM</button>
+          <button type="button" data-curve="cw_wam_admittance" data-method-color="cw_wam_admittance" aria-pressed="true">CW-WAM + Adm.</button>
+        </div>
+        <div id="profile-chart" class="profile-chart" aria-live="polite"><img src="assets/images/contact-profiles.webp" alt="Contact-force profiles from Figure 5, also available in the paper" loading="lazy" width="2065" height="1826"></div>
+        <p id="profile-status" class="media-note">Interactive curves load when this section is in view.</p>
+        <p class="profile-caption">Lines show median measured force magnitude across successful trials; optional bands show the 25th–75th percentiles. The dashed gray line is the demonstration median. The horizontal axis uses the paper’s contact-phase alignment, with low-force intervals compressed; it is not elapsed time or a video timeline.</p>
+        <div class="profile-downloads"><span>Plotting data from the reported experiments</span><a href="assets/data/peg-force-profiles.csv" download>Peg CSV ↓</a><a href="assets/data/wiping-force-profiles.csv" download>Wiping CSV ↓</a></div>
+        <noscript><p>JavaScript is needed for the interactive chart. The figure and downloadable CSV files remain available.</p><style>.profile-toolbar,#profile-methods,#profile-status{display:none}</style></noscript>
       </div>
       <p class="results-context">All evaluated methods remove the simple wiping patterns in 20/20 trials; the comparison highlights force regulation and execution quality. Task videos illustrate individual runs, while the reported rates summarize repeated trials.</p>
+
     </section>
 
-    <section id="overview" class="overview-section section" aria-labelledby="overview-title"><div class="wrap overview-wrap"><div class="section-heading"><div><p class="eyebrow">04 / Full presentation</p><h2 id="overview-title">See the complete story.</h2></div><p>Method overview, real-robot comparisons, and experimental results in three minutes.</p></div><div class="overview-player"><video controls playsinline preload="none" poster="assets/images/overview-poster.jpg?v=20260923-review1" width="1920" height="1080" aria-label="CW-WAM full paper video"><source src="assets/videos/cw-wam-overview.mp4?v=20260923-review1" type="video/mp4">Your browser does not support embedded video. <a href="assets/videos/cw-wam-overview.mp4?v=20260923-review1">Download the full video.</a></video></div><div class="download-row"><span>Full research video · 1080p · 3 minutes</span><a href="assets/videos/cw-wam-overview.mp4?v=20260923-review1" download>Download video ↓</a></div></div></section>
-    <section class="paper-section wrap" aria-labelledby="paper-title"><div><p class="eyebrow">Explore the research</p><h2 id="paper-title">CW-WAM</h2><p>A Structured Contact-Wrench World Action Model<br>for Force-Sensitive Manipulation</p><p class="authors">Anonymous Authors</p></div><a class="button primary" href="assets/papers/cw-wam-paper.pdf?v=20260923-review1" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a></section>
+    <section id="overview" class="overview-section section" aria-labelledby="overview-title"><div class="wrap overview-wrap"><div class="section-heading"><div><p class="eyebrow">04 / Full presentation</p><h2 id="overview-title">See the complete story.</h2></div><p>Method overview, real-robot comparisons, and experimental results in three minutes.</p></div><div class="overview-player"><video controls playsinline preload="none" poster="assets/images/overview-poster.jpg?v=20260923-readable2" width="1920" height="1080" aria-label="CW-WAM full paper video"><source src="assets/videos/cw-wam-overview.mp4?v=20260923-readable2" type="video/mp4">Your browser does not support embedded video. <a href="assets/videos/cw-wam-overview.mp4?v=20260923-readable2">Download the full video.</a></video></div><div class="download-row"><span>High-quality research video · 1080p · 3 minutes · 42.5 MB</span><a href="assets/videos/cw-wam-overview.mp4?v=20260923-readable2" download>Download video ↓</a></div></div></section>
+    <section class="paper-section wrap" aria-labelledby="paper-title"><div><p class="eyebrow">Explore the research</p><h2 id="paper-title">CW-WAM</h2><p>A Structured Contact-Wrench World Action Model<br>for Force-Sensitive Manipulation</p><p class="authors">Anonymous Authors</p></div><a class="button primary" href="assets/papers/cw-wam-paper.pdf?v=20260923-readable2" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a></section>
   </main>
   <footer class="footer wrap"><a class="wordmark" href="#">CW-WAM</a><span>Anonymous research project</span><a href="#main">Back to top ↑</a></footer>
 </body>

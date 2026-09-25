@@ -14,33 +14,42 @@ The preview server supports byte-range requests for video seeking and PDF loadin
 
 ## Current content (2026-09-23)
 
-The page uses the author-supplied `CW-WAM_website_handoff` package. Only assets used by the page are included; editable slides, source audio, and the complete trial archive remain in the handoff.
+The page uses the author-supplied `CW-WAM_website_handoff` package. The repository includes the displayed assets; editable slides, source audio, and the complete trial archive remain in the handoff.
 
-- Four task tabs each offer **Method comparison** and **CW-WAM single view**.
-- Three additional videos show peg failure/success examples, 20 consecutive adapter attempts, and six wiping patterns.
-- The full presentation is the supplied 1920 × 1080, 179.833-second video with narration.
+- Four task sections are displayed together and each offer **Method comparison**, **Single-method view**, and **More experiment videos** in one player, with four methods for peg/adapter/wiping and three for spring transport.
+- The three view buttons share the same appearance and replace the content of the task’s existing player. **More experiment videos** shows the matching supplementary clip; spring transport additionally offers three method buttons for its repeated trials. There are no expandable video panels. View and method selections are independent across tasks.
+- The full presentation is the supplied high-quality 1920 × 1080, 179.833-second master with narration (42.5 MB), replacing the compressed submission copy.
 - Model, control, and task-result figures use the supplied high-resolution images; expandable panels add contact profiles, load adaptation, and wrench-feedback results.
-- Hero images come from the independent CW-WAM trial videos at 20 s (peg), 6 s (adapter), and 5 s (wiping and transport).
+- The four hero cards use the supplied cartoon task illustrations from the handoff images, displayed in full with contain sizing. Each card links to its corresponding task section.
 - `assets/papers/cw-wam-paper.pdf` comes from `01_essential/paper.pdf`. This handoff PDF is byte-identical to the PDF previously hosted, so headline results remain unchanged.
+
+Additional website material includes an expandable bilateral demonstration setup and interactive peg/wiping contact-force profiles with method toggles, optional interquartile bands, a phase readout, and downloadable CSV data. The curves expand Figure 5; they do not represent new experiments. Older local training-count and ablation documents differ from the final submission and are not imported.
+
+The interface uses a near-white background, larger reading sizes, and a consistent method key: WAM red, WAM + Wrench orange, CW-WAM blue, and CW-WAM + admittance green. Supplied paper figures and comparison videos remain intact.
 
 ## Edit and replace assets
 
-- `index.html`: structure, research copy, result captions, and the three additional experiment cards.
+- `index.html`: structure, research copy, result captions, and interactive experiment sections.
 - `styles.css`: layout and responsive styling.
-- `script.js`: task descriptions, view-specific viewing guidance, task selection, and comparison/single-view switching.
+- `script.js`: task descriptions, independent per-task view/method switching, supplementary-video selection, and interactive contact-force profiles.
 - `preview.py`: optional local preview server with byte-range support; GitHub Pages serves the static assets independently.
 - `assets/videos/{peg,adapter,wiping,transport}.mp4`: the four formal comparison videos.
 - `assets/videos/{peg,adapter,wiping,transport}-cw-wam.mp4`: prepared CW-WAM single-method clips.
-- `assets/videos/{peg-examples,adapter-repeated,ink-removal}.mp4`: the three additional experiment videos.
-- `assets/videos/cw-wam-overview.mp4`: the full narrated presentation.
+- `assets/videos/{peg-examples,adapter-repeated,ink-removal}.mp4`: the task-specific supplementary clips for peg, adapter, and wiping.
+- `assets/videos/transport-repeated-{wam,wam-wrench,cw-wam}.mp4`: per-method concatenations of eight supplied 8× core lift/transport excerpts, in trial order; no re-encoding or new speed changes.
+- `assets/videos/cw-wam-overview.mp4`: the full narrated high-quality presentation.
+- `assets/videos/*-{wam,wam-wrench,cw-wam-admittance}.mp4`: additional individual method clips; spring transport has no admittance clip.
+- `assets/data/contact-profiles.json`: exact numeric plotting samples grouped by task and method; arrays contain paper progress, method Q25/median/Q75, and demonstration Q25/median/Q75.
+- `assets/data/{peg,wiping}-force-profiles.csv`: public plotting fields with original precision, excluding the illustrative video's remapped progress.
+- `assets/images/demonstration-setup.webp`: the supplementary bilateral teleoperation figure.
 - `assets/images/*-poster.jpg`: matched video posters; `*-single-poster.jpg` corresponds to independent trials.
-- `assets/images/*-hero.webp`: clean single-method frames used in the introductory task grid.
+- `assets/images/*-illustration.png`: the four source task illustrations used in the introductory grid; `*-hero.webp` retains the previous photo thumbnails.
 - `assets/images/{architecture,execution,results,contact-profiles,load-adaptation,wrench-feedback}.webp`: web-sized versions of the supplied figure images, preserving their aspect ratios.
 - `asset-sources.json`: paths relative to the handoff package for the principal media and figures.
 
-Keep filenames stable when replacing a clip, and replace its poster too. Bump the `v` revision on asset URLs in `index.html` and the `asset` helper in `script.js` together so returning viewers fetch updated files. The current revision is `20260923-review1`.
+Keep filenames stable when replacing a clip, and replace its poster too. Bump the `v` revision on asset URLs in `index.html` and the `asset` helper in `script.js` together so returning viewers fetch updated files. The current revision is `20260923-readable2`.
 
-Videos use `preload="none"` and play on request. Switching tasks or views pauses the prior clip; starting another player pauses all others. All videos support progressive playback. The spring-transport single-view clip was remuxed with faststart, without changing its video frames or timing; the other videos were copied directly.
+Videos use `preload="none"` and play on request. Switching a task’s view or method pauses its prior clip; starting another player pauses all others. All videos support progressive playback. The spring-transport single-view clip was remuxed with faststart, without changing its video frames or timing; the additional single-method videos were also remuxed with faststart and without re-encoding; the remaining videos were copied directly.
 
 ## Scientific labels
 
