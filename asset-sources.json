@@ -66,7 +66,7 @@
         "02_supplementary/individual_trials/spring_repeated/wam/trial-07_lift_transport.mp4",
         "02_supplementary/individual_trials/spring_repeated/wam/trial-08_lift_transport.mp4"
       ],
-      "operation": "Concatenate supplied trials 01\u201308 in order without re-encoding; original 8x playback preserved."
+      "operation": "Concatenate supplied trials 01–08 in order without re-encoding; original 8x playback preserved."
     },
     "assets/videos/transport-repeated-wam-wrench.mp4": {
       "files": [
@@ -79,7 +79,7 @@
         "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-07_lift_transport.mp4",
         "02_supplementary/individual_trials/spring_repeated/wam_wrench/trial-08_lift_transport.mp4"
       ],
-      "operation": "Concatenate supplied trials 01\u201308 in order without re-encoding; original 8x playback preserved."
+      "operation": "Concatenate supplied trials 01–08 in order without re-encoding; original 8x playback preserved."
     },
     "assets/videos/transport-repeated-cw-wam.mp4": {
       "files": [
@@ -92,7 +92,35 @@
         "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-07_lift_transport.mp4",
         "02_supplementary/individual_trials/spring_repeated/cw_wam/trial-08_lift_transport.mp4"
       ],
-      "operation": "Concatenate supplied trials 01\u201308 in order without re-encoding; original 8x playback preserved."
+      "operation": "Concatenate supplied trials 01–08 in order without re-encoding; original 8x playback preserved."
+    }
+  },
+  "presentation_revision": "20260928-model-side1",
+  "copy_source": "paper-copy-sources.json",
+  "homepage_previews": {
+    "peg": {
+      "file": "assets/videos/hero-peg.mp4",
+      "source": "assets/videos/peg-cw-wam-admittance.mp4",
+      "method": "CW-WAM + Adm.",
+      "derivation": "Full-duration 640x360 H.264, CRF 24, yuv420p, faststart, no audio; source frame rate and timing preserved."
+    },
+    "adapter": {
+      "file": "assets/videos/hero-adapter.mp4",
+      "source": "assets/videos/adapter-cw-wam-admittance.mp4",
+      "method": "CW-WAM + Adm.",
+      "derivation": "Full-duration 640x360 H.264, CRF 24, yuv420p, faststart, no audio; source frame rate and timing preserved."
+    },
+    "wiping": {
+      "file": "assets/videos/hero-wiping.mp4",
+      "source": "assets/videos/wiping-cw-wam-admittance.mp4",
+      "method": "CW-WAM + Adm.",
+      "derivation": "Full-duration 640x360 H.264, CRF 24, yuv420p, faststart, no audio; source frame rate and timing preserved."
+    },
+    "transport": {
+      "file": "assets/videos/hero-transport.mp4",
+      "source": "assets/videos/transport-cw-wam.mp4",
+      "method": "CW-WAM",
+      "derivation": "Full-duration 640x360 H.264, CRF 24, yuv420p, faststart, no audio; source frame rate and timing preserved."
     }
   }
 }

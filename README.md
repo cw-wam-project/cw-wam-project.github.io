@@ -4,63 +4,54 @@ Static project page for **CW-WAM: A Structured Contact-Wrench World Action Model
 
 ## Preview
 
-On the website's Ubuntu host, run this from the website repository root:
+From the website repository root on its Ubuntu host:
 
 ```bash
 python3 preview.py
 ```
 
-The preview server supports byte-range requests for video seeking and PDF loading. It binds only to the host loopback interface. The host serves `index.html` at http://127.0.0.1:8000. When working over SSH, forward that port to your own computer before opening it in a browser. The repository's private project-context document records the confirmed SSH setup. `index.html` can also be opened locally with its assets folder alongside it.
+This optional server binds to `127.0.0.1:8000` and supports byte-range requests for videos and the PDF. When connecting over SSH, use the previously configured local port forwarding. GitHub Pages serves the same static files independently.
 
-## Current content (2026-09-23)
+## Presentation and copy policy (2026-09-28)
 
-The page uses the author-supplied `CW-WAM_website_handoff` package. The repository includes the displayed assets; editable slides, source audio, and the complete trial archive remain in the handoff.
+The page uses a white, spacious research-project layout, with a large blue CW-WAM heading above the full paper subtitle, compact resource links, an 860 px abstract column, and 1040 px media sections: the paper title and anonymous author line, four looping video task links, the complete narrated video, the scientific abstract, model and controller figures, four large task players, and selectable result figures. Body text is 21 px on desktop and generally 19 px on phones; captions are 18/17 px. Promotional slogans, metric cards, viewing tips, sidebars, the supplementary hardware panel, and the interactive curve widget are no longer displayed.
 
-- Four task sections are displayed together and each offer **Method comparison**, **Single-method view**, and **More experiment videos** in one player, with four methods for peg/adapter/wiping and three for spring transport.
-- The three view buttons share the same appearance and replace the content of the task’s existing player. **More experiment videos** shows the matching supplementary clip; spring transport additionally offers three method buttons for its repeated trials. There are no expandable video panels. View and method selections are independent across tasks.
-- The full presentation is the supplied high-quality 1920 × 1080, 179.833-second master with narration (42.5 MB), replacing the compressed submission copy.
-- Model, control, and task-result figures use the supplied high-resolution images; expandable panels add contact profiles, load adaptation, and wrench-feedback results.
-- The four hero cards use the supplied cartoon task illustrations from the handoff images, displayed in full with contain sizing. Each card links to its corresponding task section.
-- `assets/papers/cw-wam-paper.pdf` comes from `01_essential/paper.pdf`. This handoff PDF is byte-identical to the PDF previously hosted, so headline results remain unchanged.
+All authored page headings, paragraphs, captions, button terms, and accessible text come from the final hosted paper. Button wording is also restricted to paper vocabulary or icons, as explicitly requested by the author. `paper-copy-sources.json` records the quoted excerpts and their PDF pages. Normalization allows capitalization, punctuation, and PDF line wrapping; it does not paraphrase scientific prose. The abstract reproduces its scientific text, omitting the self-referential website address. Shorter captions are contiguous excerpts of the corresponding paper captions. Text already embedded in supplied images/videos and native browser media controls is outside the editable HTML copy.
 
-Additional website material includes an expandable bilateral demonstration setup and interactive peg/wiping contact-force profiles with method toggles, optional interquartile bands, a phase readout, and downloadable CSV data. The curves expand Figure 5; they do not represent new experiments. Older local training-count and ablation documents differ from the final submission and are not imported.
+Homepage navigation and document/video actions use dark, fully rounded publication buttons inspired by the Nerfies reference. Video views, method selectors, and result selectors retain Chrome-like tabs: pale gray strips, rounded upper corners, and white selected tabs. Narrow screens wrap homepage buttons and scroll experiment/result strips horizontally without shrinking labels. Native browser media controls retain their standard appearance.
 
-The interface uses a near-white background, larger reading sizes, and a consistent method key: WAM red, WAM + Wrench orange, CW-WAM blue, and CW-WAM + admittance green. Supplied paper figures and comparison videos remain intact.
+The visual reference is [Nerfies](https://nerfies.github.io/): centered publication typography, restrained navigation, and open figure sections. The existing HTML/CSS implementation is adapted independently; template source, fonts, scripts, and analytics are not imported. The author-requested Chrome-style controls remain in place. The complete presentation follows the homepage task previews, before the abstract.
 
-## Edit and replace assets
+The architecture figure is accompanied by three brief explanations matching the supplied slide structure: recent paired history, pair-causal attention, and long-term wrench memory. The headings and explanations quote the final paper (pages 2–3), with sources recorded in `paper-copy-sources.json`. The architecture section has a wider desktop layout: the figure sits on the left and the three explanations stack vertically on the right. On screens up to 900 px wide, the explanations move below the figure.
 
-- `index.html`: structure, research copy, result captions, and interactive experiment sections.
-- `styles.css`: layout and responsive styling.
-- `script.js`: task descriptions, independent per-task view/method switching, supplementary-video selection, and interactive contact-force profiles.
-- `preview.py`: optional local preview server with byte-range support; GitHub Pages serves the static assets independently.
-- `assets/videos/{peg,adapter,wiping,transport}.mp4`: the four formal comparison videos.
-- `assets/videos/{peg,adapter,wiping,transport}-cw-wam.mp4`: prepared CW-WAM single-method clips.
-- `assets/videos/{peg-examples,adapter-repeated,ink-removal}.mp4`: the task-specific supplementary clips for peg, adapter, and wiping.
-- `assets/videos/transport-repeated-{wam,wam-wrench,cw-wam}.mp4`: per-method concatenations of eight supplied 8× core lift/transport excerpts, in trial order; no re-encoding or new speed changes.
-- `assets/videos/cw-wam-overview.mp4`: the full narrated high-quality presentation.
-- `assets/videos/*-{wam,wam-wrench,cw-wam-admittance}.mp4`: additional individual method clips; spring transport has no admittance clip.
-- `assets/data/contact-profiles.json`: exact numeric plotting samples grouped by task and method; arrays contain paper progress, method Q25/median/Q75, and demonstration Q25/median/Q75.
-- `assets/data/{peg,wiping}-force-profiles.csv`: public plotting fields with original precision, excluding the illustrative video's remapped progress.
-- `assets/images/demonstration-setup.webp`: the supplementary bilateral teleoperation figure.
-- `assets/images/*-poster.jpg`: matched video posters; `*-single-poster.jpg` corresponds to independent trials.
-- `assets/images/*-illustration.png`: the four source task illustrations used in the introductory grid; `*-hero.webp` retains the previous photo thumbnails.
-- `assets/images/{architecture,execution,results,contact-profiles,load-adaptation,wrench-feedback}.webp`: web-sized versions of the supplied figure images, preserving their aspect ratios.
-- `asset-sources.json`: paths relative to the handoff package for the principal media and figures.
+## Video views
 
-Keep filenames stable when replacing a clip, and replace its poster too. Bump the `v` revision on asset URLs in `index.html` and the `asset` helper in `script.js` together so returning viewers fetch updated files. The current revision is `20260923-readable2`.
+All four tasks remain visible, with an independent shared player for each task:
 
-Videos use `preload="none"` and play on request. Switching a task’s view or method pauses its prior clip; starting another player pauses all others. All videos support progressive playback. The spring-transport single-view clip was remuxed with faststart, without changing its video frames or timing; the additional single-method videos were also remuxed with faststart and without re-encoding; the remaining videos were copied directly.
+- **Comparison**: the supplied multi-method comparison.
+- **Robot Execution**: the individual method clips, with red WAM, orange WAM + Wrench, blue CW-WAM, and green CW-WAM + Adm. controls. Transport has three methods.
+- **Task completion**: peg failure/success examples, repeated adapter insertions, six-pattern wiping, or transport repetitions. Transport offers three methods and remembers this selection independently of its single-view selection.
 
-## Scientific labels
+Full experiment videos load on demand (`preload="none"`). A view/method change pauses that player; starting a full video pauses other full players and homepage previews. All source timing and footage remain unchanged. The source trials are prepared clips and may be accelerated. Transport repetitions concatenate eight supplied 8× core lift/transport excerpts per method, preserving their 640×524 source frames; they are selected examples, not a complete evaluation cohort. Do not infer physical execution time from playback duration or assign new outcomes to clips with blank catalog outcomes.
 
-- Success rates summarize 20 attempts per method per contact task. They are not counts of selected website examples. Insertion and release are distinct outcomes.
-- Headline force-reference RMSE uses the successful-trial subset of Figure 4.
-- Preserve the supplied comparison videos' speed and curve labels. Independent clips are already prepared/cropped and may be accelerated; do not interpret playback duration as physical execution time or assign a common speed to all clips.
-- No success/failure labels are inferred for independent CW-WAM clips whose catalog outcome is blank.
-- Peg/wiping cohort curves and adapter illustrative reference traces do not establish synchronization with the displayed trial. Do not calculate cohort RMSE from a median curve.
-- Six-pattern ink removal is 85.9% on the six selected patterns, separate from simple-pattern wiping success (20/20).
-- Figure 7's representative-trial RMSE values and its 10-trial aggregate comparisons are distinct from Figure 4 headline values.
+The complete presentation uses the supplied 1920×1080 high-quality master, 179.833 seconds and 42,527,851 bytes, with its original audio. The PDF is byte-identical to the author-designated final submission.
+
+Homepage previews use full-length 640×360 H.264 derivatives of the existing single-method clips, without audio or changes to source timing. Peg, adapter, and wiping use CW-WAM + Adm.; transport uses CW-WAM because no admittance clip is available for that task. The four muted loops play together while visible and stop when off-screen, when the tab is hidden, or when a full player is running. The icon button pauses/resumes them together; reduced-motion settings default to paused. Original cartoon assets remain available for reverting the preview.
+
+## Files
+
+- `index.html`: paper-derived copy, native media, task sections, and figures.
+- `styles.css`: complete layout and responsive typography.
+- `script.js`: independent task players, viewport-aware homepage loops, exclusive full-video playback, and keyboard-accessible result tabs. It inserts no promotional or explanatory copy.
+- `paper-copy-sources.json`: text provenance against `assets/papers/cw-wam-paper.pdf`.
+- `asset-sources.json`: media paths relative to the supplied handoff, plus explicitly documented derived media.
+- `assets/images/*-illustration.png`: original task illustrations, retained as an alternative to the homepage video previews.
+- `assets/images/{architecture,execution,results,contact-profiles,load-adaptation,wrench-feedback}.webp`: supplied paper figures.
+- `assets/videos/`: the existing comparison, individual-method, outcome, and narrated presentation videos.
+- `assets/data/` and `assets/images/demonstration-setup.webp`: retained assets from the earlier design, currently not displayed.
+
+The stylesheet revision is `20260928-model-side1`; the script revision is `20260928-previews1`. Bump these resource query strings when changing their contents. Media filenames are stable; use a new media revision if an existing file is replaced. No-JavaScript visitors can play all four comparison videos and the presentation, open the supplemental media links, and view every result figure.
 
 ## Anonymous page
 
-The visible page retains Anonymous Authors and has no invented author, affiliation, code, model, or dataset links. Media are taken from the supplied handoff. Local updates do not publish the site or change repository visibility.
+The page retains Anonymous Authors. It contains no added author names, affiliations, personal links, or invented code/model releases. Local edits do not push to GitHub or change the deployment configuration.

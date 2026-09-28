@@ -1,0 +1,327 @@
+{
+  "source": "assets/papers/cw-wam-paper.pdf",
+  "normalization": "Case, whitespace, line wrapping, and typographic punctuation only. Every authored text fragment is present in the final paper. Embedded video and image lettering remains part of the supplied media.",
+  "excerpts": {
+    "title": {
+      "text": "CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation",
+      "pages": [
+        1
+      ]
+    },
+    "authors": {
+      "text": "Anonymous Authors",
+      "pages": [
+        1
+      ]
+    },
+    "abstract": {
+      "text": "Force-sensitive manipulation requires contact and load information that is not provided explicitly by visual observations. We present CW-WAM, a world action model that jointly predicts video, motion, and contact wrench. Inspired by hybrid motion–force control, it contains a unified interaction module that treats both motion and contact wrench as modeling targets and predicts time-aligned motion–wrench chunks as control references. A pair-causal attention mechanism structures the motion–wrench dependencies, while a long fixed-length wrench memory retains past interaction information. The predicted wrench chunk acts as a force reference for a 20-Hz outer-loop admittance controller within a slow–fast control system that maintains force feedback and smooth motion between model queries. CW-WAM improves contact prediction and increases the insertion success rate from 25% to 70% for square pegs with 1-mm clearance per side and from 40% to 95% for power adapters, compared with WAM without wrench input. It also improves lifting-height accuracy across different loads. Our framework with an admittance controller reduces force-reference RMSE from 4.8 to 2.7 N for peg insertion and from 2.0 to 1.3 N for wiping, respectively, with smaller force fluctuations during successful execution.",
+      "pages": [
+        1
+      ]
+    },
+    "model_heading": {
+      "text": "Structured action–wrench modeling",
+      "pages": [
+        1
+      ]
+    },
+    "model_caption": {
+      "text": "CW-WAM jointly predicts video, motion, and wrench from visual observations, language, robot state, and interaction history. Paired motion–wrench tokens capture recent interactions, while long-term wrench memory retains earlier contact information.",
+      "pages": [
+        2
+      ]
+    },
+    "control_heading": {
+      "text": "Slow–fast motion–force control",
+      "pages": [
+        2,
+        3
+      ]
+    },
+    "control_text": {
+      "text": "The admittance controller computes pose corrections at 20 Hz. The corrected motion waypoints are then interpolated into smooth trajectories for a 1-kHz robot controller.",
+      "pages": [
+        2
+      ]
+    },
+    "control_caption": {
+      "text": "Admittance corrects nominal base-frame poses before IK.",
+      "pages": [
+        3
+      ]
+    },
+    "experiments_heading": {
+      "text": "Real-robot evaluation and metrics",
+      "pages": [
+        5
+      ]
+    },
+    "experiments_intro": {
+      "text": "We select four tasks to test contact-guided alignment, precise seating, force regulation, and adaptation to payload",
+      "pages": [
+        4
+      ]
+    },
+    "peg_title": {
+      "text": "Square peg insertion",
+      "pages": [
+        1,
+        4
+      ]
+    },
+    "peg_description": {
+      "text": "The robot inserts a 38-mm square peg into a 40-mm hole with 1-mm clearance per side and an insertion depth of about 50 mm.",
+      "pages": [
+        4
+      ]
+    },
+    "adapter_title": {
+      "text": "Power-adapter insertion",
+      "pages": [
+        1,
+        4
+      ]
+    },
+    "adapter_description": {
+      "text": "The robot grasps a loosely placed adapter and seats it in another socket. This tests precise positioning and insertion with contact.",
+      "pages": [
+        4
+      ]
+    },
+    "wiping_title": {
+      "text": "Whiteboard wiping",
+      "pages": [
+        1,
+        4,
+        6,
+        7,
+        8
+      ]
+    },
+    "wiping_description": {
+      "text": "The robot picks up an eraser and removes a marker trace through sustained surface contact.",
+      "pages": [
+        4
+      ]
+    },
+    "transport_title": {
+      "text": "Spring-scale transport",
+      "pages": [
+        1,
+        4
+      ]
+    },
+    "transport_description": {
+      "text": "The robot grasps a spring scale attached to a box and transfers the box between bins. The boxes weigh either 30 g or 830 g but look identical.",
+      "pages": [
+        4
+      ]
+    },
+    "outcomes_heading": {
+      "text": "Task outcomes and execution quality",
+      "pages": [
+        6
+      ]
+    },
+    "outcomes_caption": {
+      "text": "Top: insertion or marker-removal success out of 20 trials; hatched bars show successful release. Quality rows compare all 20 trials (light, hatched) with successful subsets (dark bars); these groups coincide for wiping. A dash indicates no wrench prediction.",
+      "pages": [
+        6
+      ]
+    },
+    "profiles_caption": {
+      "text": "Colored curves show measured force magnitudes across successful trials. Thick blue and green curves show CW-WAM without and with admittance, respectively. The black curve and gray band show the demonstration reference. Curves are aligned by contact phase, with low-force intervals compressed. Adapter unloading includes only trials with successful release.",
+      "pages": [
+        7
+      ]
+    },
+    "load_caption": {
+      "text": "Curves show representative end-effector height trajectories. Dashed lines indicate approximate heights needed to clear the bin rim. The lower panels show peak heights from all ten trials per method and load. Diamonds mark the trials shown in the trajectories. Gray lines and bands show demonstration references.",
+      "pages": [
+        7
+      ]
+    },
+    "feedback_caption": {
+      "text": "Force and torque tracking for peg insertion (left) and whiteboard wiping (right). (a–f) Measured and reference magnitudes, with three-axis force RMSE labels. Each example is selected from the trial whose force variation is closest to the group median. (g,h) Force variation (solid bars, left axis) and torque variation (hatched bars, right axis). Aggregate bars summarize 10 trials per condition.",
+      "pages": [
+        8
+      ]
+    },
+    "ui:CW-WAM": {
+      "text": "CW-WAM",
+      "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ]
+    },
+    "ui:Abstract": {
+      "text": "Abstract",
+      "pages": [
+        1,
+        7
+      ]
+    },
+    "ui:Model": {
+      "text": "Model",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "ui:Control": {
+      "text": "Control",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8
+      ]
+    },
+    "ui:Experiments": {
+      "text": "Experiments",
+      "pages": [
+        4
+      ]
+    },
+    "ui:Video": {
+      "text": "Video",
+      "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "ui:Comparison": {
+      "text": "Comparison",
+      "pages": [
+        6
+      ]
+    },
+    "ui:Robot Execution": {
+      "text": "Robot Execution",
+      "pages": [
+        2
+      ]
+    },
+    "ui:Task completion": {
+      "text": "Task completion",
+      "pages": [
+        5,
+        6
+      ]
+    },
+    "ui:WAM": {
+      "text": "WAM",
+      "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "ui:WAM + Wrench": {
+      "text": "WAM + Wrench",
+      "pages": [
+        5,
+        6,
+        7
+      ]
+    },
+    "ui:CW-WAM + Adm.": {
+      "text": "CW-WAM + Adm.",
+      "pages": [
+        1,
+        6,
+        7
+      ]
+    },
+    "ui:Task outcomes": {
+      "text": "Task outcomes",
+      "pages": [
+        6
+      ]
+    },
+    "ui:Contact-force curves": {
+      "text": "Contact-force curves",
+      "pages": [
+        7
+      ]
+    },
+    "ui:Load-dependent lifting": {
+      "text": "Load-dependent lifting",
+      "pages": [
+        6,
+        7
+      ]
+    },
+    "ui:Force and torque tracking": {
+      "text": "Force and torque tracking",
+      "pages": [
+        8
+      ]
+    },
+    "ui:Fig. 2.": {
+      "text": "Fig. 2.",
+      "pages": [
+        2
+      ]
+    },
+    "ui:Fig. 3.": {
+      "text": "Fig. 3.",
+      "pages": [
+        3,
+        4
+      ]
+    },
+    "ui:Fig. 4.": {
+      "text": "Fig. 4.",
+      "pages": [
+        5,
+        6,
+        7
+      ]
+    },
+    "ui:Fig. 5.": {
+      "text": "Fig. 5.",
+      "pages": [
+        6,
+        7
+      ]
+    },
+    "ui:Fig. 6.": {
+      "text": "Fig. 6.",
+      "pages": [
+        6,
+        7
+      ]
+    },
+    "ui:Fig. 7.": {
+      "text": "Fig. 7.",
+      "pages": [
+        6,
+        7,
+        8
+      ]
+    }
+  }
+}
