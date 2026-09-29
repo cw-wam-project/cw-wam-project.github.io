@@ -36,7 +36,8 @@
     "assets/images/peg-illustration.png": "01_essential/images/task1-peginhole.png",
     "assets/images/adapter-illustration.png": "01_essential/images/task2-power-adapter-insertion.png",
     "assets/images/wiping-illustration.png": "01_essential/images/task3-whiteboard-wiping.png",
-    "assets/images/transport-illustration.png": "01_essential/images/task2-spring-scale-transport.png"
+    "assets/images/transport-illustration.png": "01_essential/images/task2-spring-scale-transport.png",
+    "assets/images/fig01-teaser.png": "01_essential/images/fig01_teaser.png"
   },
   "notes": [
     "Single-method clips preserve the supplied timing; no new success labels are assigned.",
@@ -95,7 +96,7 @@
       "operation": "Concatenate supplied trials 01–08 in order without re-encoding; original 8x playback preserved."
     }
   },
-  "presentation_revision": "20260928-model-side1",
+  "presentation_revision": "20260929-figure1",
   "copy_source": "paper-copy-sources.json",
   "homepage_previews": {
     "peg": {
