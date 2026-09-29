@@ -15,14 +15,14 @@
   <a class="skip-link" href="#main">CW-WAM</a>
   <header class="site-header"><nav class="nav wrap" aria-label="CW-WAM">
     <div class="nav-links"><a class="resource-button" href="#method">Model</a><a class="resource-button" href="#control">Control</a><a class="resource-button" href="#demos">Experiments</a>
-    <a class="paper-icon resource-button" href="assets/papers/cw-wam-paper.pdf" target="_blank" rel="noopener" aria-label="CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation" title="CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h6"/></svg></a>
+    <!-- <a class="paper-icon resource-button" href="assets/papers/cw-wam-paper.pdf" target="_blank" rel="noopener"> Paper </a> -->
     </div>
   </nav></header>
   <main id="main">
     <section class="hero wrap" aria-labelledby="project-title">
       <h1 id="project-title"><span class="project-name">CW-WAM</span><span class="project-subtitle">A Structured Contact-Wrench World Action Model<br> for Force-Sensitive Manipulation</span></h1>
       <p class="authors">Anonymous Authors</p>
-      <div class="hero-actions"><a class="paper-link resource-button" href="assets/papers/cw-wam-paper.pdf" target="_blank" rel="noopener" aria-label="CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation" title="CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h6"/></svg></a><a class="video-link resource-button" href="#overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg><span>Video</span></a></div>
+      <div class="hero-actions"><a class="paper-link resource-button" href="assets/papers/cw-wam-paper.pdf" target="_blank" rel="noopener"><span>Paper</span></a><a class="video-link resource-button" href="#overview"><span>Video</span></a></div>
       <div class="hero-grid" aria-label="Experiments">
         <a class="hero-tile" href="#task-peg"><video class="hero-preview" autoplay muted loop playsinline preload="none" poster="assets/images/peg-cw-wam-admittance-poster.jpg" width="640" height="360" aria-hidden="true"><source src="assets/videos/hero-peg.mp4" type="video/mp4"></video><span>Square peg insertion</span></a>
         <a class="hero-tile" href="#task-adapter"><video class="hero-preview" autoplay muted loop playsinline preload="none" poster="assets/images/adapter-cw-wam-admittance-poster.jpg" width="640" height="360" aria-hidden="true"><source src="assets/videos/hero-adapter.mp4" type="video/mp4"></video><span>Power-adapter insertion</span></a>
@@ -49,7 +49,7 @@
     </section>
     <section id="control" class="research-section control-section wrap" aria-labelledby="control-title">
       <div class="control-copy"><h2 id="control-title">Slow–fast motion–force control</h2><p>The admittance controller computes pose corrections at 20 Hz. The corrected motion waypoints are then interpolated into smooth trajectories for a 1-kHz robot controller.</p></div>
-      <figure><a href="assets/images/execution.webp" target="_blank" rel="noopener"><img src="assets/images/execution.webp" alt="Admittance corrects nominal base-frame poses before IK." width="2600" height="2404" loading="lazy"></a><figcaption><a href="assets/papers/cw-wam-paper.pdf#page=3" target="_blank" rel="noopener">Fig. 3.</a> Admittance corrects nominal base-frame poses before IK.</figcaption></figure>
+      <figure><a href="assets/images/execution.webp" target="_blank" rel="noopener"><img src="assets/images/execution.webp" alt="Admittance corrects nominal base-frame poses before IK." width="2600" height="2404" loading="lazy"></a><figcaption><a href="assets/papers/cw-wam-paper.pdf#page=3" target="_blank" rel="noopener">Fig. 3.</a> Admittance corrects base-frame poses before IK. </figcaption></figure>
     </section>
     <section id="demos" class="research-section experiments wrap" aria-labelledby="demos-title">
       <header class="section-intro"><h2 id="demos-title">Real-robot evaluation and metrics</h2><p>We select four tasks to test contact-guided alignment, precise seating, force regulation, and adaptation to payload.</p></header>
