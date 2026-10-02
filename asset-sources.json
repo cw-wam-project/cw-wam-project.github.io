@@ -96,14 +96,14 @@
       "operation": "Concatenate supplied trials 01–08 in order without re-encoding; original 8x playback preserved."
     }
   },
-  "presentation_revision": "20260929-figure1",
+  "presentation_revision": "20261001-peg-figure",
   "copy_source": "paper-copy-sources.json",
   "homepage_previews": {
     "peg": {
-      "file": "assets/videos/hero-peg.mp4",
+      "file": "assets/videos/hero-peg-trimmed.mp4",
       "source": "assets/videos/peg-cw-wam-admittance.mp4",
       "method": "CW-WAM + Adm.",
-      "derivation": "Full-duration 640x360 H.264, CRF 24, yuv420p, faststart, no audio; source frame rate and timing preserved."
+      "derivation": "First 24.9 seconds of peg-cw-wam-admittance.mp4, ending after gripper opening and before the subsequent closing motion; 640x360 H.264, CRF 24, yuv420p, faststart, no audio; source playback speed preserved."
     },
     "adapter": {
       "file": "assets/videos/hero-adapter.mp4",
