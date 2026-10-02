@@ -52,13 +52,13 @@ Task previews use 640×360 H.264 derivatives of the existing single-method clips
 - `assets/videos/`: the existing comparison, individual-method, outcome, and narrated presentation videos.
 - `assets/data/` and `assets/images/demonstration-setup.webp`: retained assets from the earlier design, currently not displayed.
 
-The stylesheet revision is `20261001-nav-inline1`; the script revision is `20260928-previews1`. Bump these resource query strings when changing their contents. Media filenames are stable; use a new media revision if an existing file is replaced. No-JavaScript visitors can play all four comparison videos and the presentation, open the supplemental media links, and view every result figure.
+The stylesheet revision is `20261002-code-disabled1`; the script revision is `20260928-previews1`. Bump these resource query strings when changing their contents. Media filenames are stable; use a new media revision if an existing file is replaced. No-JavaScript visitors can play all four comparison videos and the presentation, open the supplemental media links, and view every result figure.
 
 ## Anonymous page
 
 The page retains Anonymous Authors. It contains no added author names, affiliations, personal links, or invented code/model releases. Local edits do not push to GitHub or change the deployment configuration.
 
-The Code button currently links to https://www.google.com/ as a temporary destination explicitly requested by the author. Replace it with the actual repository URL when supplied.
+The Code button is disabled, has no destination, and uses a light-gray appearance until a repository link is supplied.
 
 ## Citation and footer
 
