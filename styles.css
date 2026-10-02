@@ -38,10 +38,12 @@ h1{margin:0}
 .authors{font-size:22px;color:var(--muted);margin:26px 0 0}
 .hero-actions{width:fit-content;margin:22px auto 44px}
 .hero-actions .paper-link{padding-inline:21px}
-.section-nav{display:flex;align-items:center;justify-content:center;gap:8px 14px;padding-block:4px 30px}
-.section-nav a{display:inline-flex;align-items:center;justify-content:center;max-width:100%;min-height:44px;padding:8px 0;color:var(--blue);font-size:20px;font-weight:600;line-height:1.5;text-align:center;text-decoration:none;transition:color .15s}
+.section-nav{display:flex;align-items:center;gap:12px;padding-block:4px 30px;overflow-x:auto;scrollbar-width:thin}
+.section-nav a{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;white-space:nowrap;min-height:44px;padding:8px 0;color:var(--blue);font-size:17px;font-weight:600;line-height:1.5;text-align:center;text-decoration:none;transition:color .15s}
+.section-nav a:first-child{margin-left:auto}
+.section-nav a:last-child{margin-right:auto}
 .section-nav a:hover{color:#204e7c}
-.nav-separator{flex-shrink:0;color:var(--muted);font-size:24px;line-height:1}
+.nav-separator{flex-shrink:0;color:var(--muted);font-size:18px;line-height:1}
 .cover-previews{margin-top:0}
 .hero-grid{max-width:1040px;margin-inline:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;align-items:start}
 .hero-tile{display:block;text-decoration:none}
@@ -62,17 +64,20 @@ main>.section-nav~section{border-top:1px solid #d5dbe2}
 figure{margin:0}
 figure>a{display:block}
 .model-section{width:min(1280px,calc(100% - 72px))}
+.method-overview,.method-part.control-section{max-width:1040px;margin-inline:auto}
+.method-part+.method-part{margin-top:72px}
+.method-part>h3,.control-copy>h3{font-size:30px;font-weight:600;line-height:1.3;letter-spacing:-.6px;margin:0 0 28px;text-align:center}
 .model-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:44px;align-items:center}
 .model-figure{min-width:0}
 .model-figure img{width:100%}
 .model-notes{display:grid;grid-template-columns:1fr;gap:28px}
 .model-notes article{padding-left:20px;border-left:2px solid #dce7f2}
-.model-notes h3{font-size:23px;line-height:1.35;font-weight:600;letter-spacing:-.35px;color:var(--blue);margin:0 0 12px}
+.model-notes h4{font-size:23px;line-height:1.35;font-weight:600;letter-spacing:-.35px;color:var(--blue);margin:0 0 12px}
 .model-notes p{font-size:20px;line-height:1.65;color:var(--muted);margin:0}
 figcaption{font-size:18px;line-height:1.7;color:var(--muted);margin:24px auto 0;max-width:920px}
 figcaption a{font-weight:600;color:var(--blue);white-space:nowrap;text-decoration:none;margin-right:5px}
 .control-section{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.control-copy h2{max-width:480px;text-align:left}
+.control-copy h3{max-width:480px;text-align:left}
 .control-copy p{font-size:21px;line-height:1.65;margin:0;max-width:510px;color:var(--muted)}
 .control-section figure{max-width:470px;justify-self:end}
 .control-section figcaption{font-size:18px}
@@ -98,30 +103,35 @@ figcaption a{font-weight:600;color:var(--blue);white-space:nowrap;text-decoratio
 .result-panel{padding-top:34px}
 .result-panel img{width:100%;max-width:1030px;margin:auto}
 #result-profiles img,#result-load img,#result-feedback img{max-width:900px}
-.footer{padding-block:40px;display:flex;justify-content:center;gap:25px;font-size:18px;color:var(--muted)}
+.citation-section h2{text-align:left}
+.citation-section pre{max-width:100%;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;padding:28px 30px;background:#f5f6f8;border:1px solid #e8ebef;border-radius:8px;color:var(--ink);font:17px/1.75 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;tab-size:2}
+.citation-section code{font:inherit}
+.footer{padding-block:44px;background:#f8f9fb;font-size:18px;line-height:1.75;color:var(--muted)}
+.footer-content p{margin:0 0 18px}
+.footer-identity{display:flex;justify-content:center;flex-wrap:wrap;gap:24px;margin-top:32px}
 .footer a{font-weight:600;text-decoration:none;color:var(--blue)}
 @media(max-width:900px){
- .section-nav{flex-direction:column;gap:0}
- .model-layout{grid-template-columns:1fr;gap:30px}.model-notes{gap:24px}.model-notes h3{font-size:23px}
+ .model-layout{grid-template-columns:1fr;gap:30px}.model-notes{gap:24px}.model-notes h4{font-size:23px}
  .project-subtitle br{display:none}
  .hero-grid{gap:18px}.hero-tile span{font-size:18px}
- .control-section{gap:35px}.control-copy p{font-size:21px}.control-copy h2{font-size:34px}
+ .control-section{gap:35px}.control-copy p{font-size:21px}.control-copy h3{font-size:34px}
 
 }
 @media(max-width:640px){
  .wrap,.narrow{width:calc(100% - 36px)}
- .section-nav a{font-size:19px}
+ .section-nav a{font-size:16px}
 
  .hero{padding-top:34px;padding-bottom:38px}.project-name{font-size:60px;letter-spacing:-2.5px;margin-bottom:22px}.project-subtitle{font-size:28px;letter-spacing:-.7px;line-height:1.35}
  .authors{font-size:20px;margin-top:22px}
  .hero-actions{margin-bottom:36px}
  .hero-grid{grid-template-columns:1fr;gap:30px}.hero-tile span{font-size:18px;margin-top:12px}
  .abstract-section{padding:36px 0 32px}.abstract-section h2{font-size:30px}.abstract-section p{font-size:19px;line-height:1.75;text-align:left}
+ .method-part+.method-part{margin-top:48px}.method-part>h3{font-size:27px}
  .research-section{padding:36px 0}h2{font-size:32px;letter-spacing:-.7px;margin-bottom:25px}
- figcaption{font-size:17px;margin-top:20px}.control-section{grid-template-columns:1fr;gap:30px}.control-copy h2{font-size:32px;text-align:center}.control-copy p{font-size:20px;text-align:center}.control-section figure{justify-self:center;max-width:440px}.control-section figcaption{font-size:17px}
+ figcaption{font-size:17px;margin-top:20px}.control-section{grid-template-columns:1fr;gap:30px}.control-copy h3{font-size:32px;text-align:center}.control-copy p{font-size:20px;text-align:center}.control-section figure{justify-self:center;max-width:440px}.control-section figcaption{font-size:17px}
  .section-intro{margin-bottom:40px}.section-intro p{font-size:20px}.task-demo{margin-top:56px}.task-heading h3{font-size:28px}.task-heading p{font-size:19px}
  .tab-button{font-size:18px;padding:12px 16px}.method-controls .tab-button{font-size:18px}
- .result-panel{padding-top:25px}.footer{font-size:17px;flex-wrap:wrap}
+ .result-panel{padding-top:25px}.citation-section pre{padding:20px 18px;font-size:16px}.footer{font-size:17px}
 }
 @media(max-width:390px){.hero-grid{gap:25px 14px}.hero-tile span{font-size:17px}.project-subtitle{font-size:26px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}

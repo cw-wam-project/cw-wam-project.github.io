@@ -9,7 +9,7 @@
   <meta property="og:type" content="website"><meta property="og:url" content="https://cw-wam-project.github.io/">
   <meta property="og:image" content="https://cw-wam-project.github.io/assets/images/overview-poster.jpg"><meta property="og:image:alt" content="CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260929-section-lines2"><script src="script.js?v=20260928-previews1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261001-nav-inline1"><script src="script.js?v=20260928-previews1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">CW-WAM</a>
@@ -36,9 +36,9 @@
     <nav class="section-nav wrap" aria-label="CW-WAM">
       <a href="#demos">Real-robot evaluation and metrics</a>
       <span class="nav-separator" aria-hidden="true">·</span>
-      <a href="#method">Structured action–wrench modeling</a>
+      <a href="#method">Contact-Wrench World Action Model</a>
       <span class="nav-separator" aria-hidden="true">·</span>
-      <a href="#control">Slow–fast motion–force control</a>
+      <a href="#results">Task outcomes and execution quality</a>
     </nav>
     <section id="demos" class="research-section experiments wrap" aria-labelledby="demos-title">
       <header class="section-intro"><h2 id="demos-title">Real-robot evaluation and metrics</h2><p>We select four tasks to test contact-guided alignment, precise seating, force regulation, and adaptation to payload.</p></header>
@@ -80,24 +80,27 @@
       </article>
       <noscript><style>.video-modes{display:none}</style></noscript>
     </section>
-    <section id="teaser" class="research-section wrap" aria-labelledby="teaser-title">
-      <h2 id="teaser-title">Wrench input and prediction</h2>
-      <figure><a href="assets/images/fig01-teaser.png" target="_blank" rel="noopener"><img src="assets/images/fig01-teaser.png" alt="CW-WAM helps robots use contact forces to guide their movements." width="5617" height="2184" loading="lazy"></a><figcaption><a href="assets/papers/cw-wam-paper.pdf#page=1" target="_blank" rel="noopener">Fig. 1.</a> CW-WAM helps robots use contact forces to guide their movements. It learns from past motions and wrist force measurements to predict both how to move and the forces expected during contact. These predictions guide motion corrections during execution. Peg insertion success increases from 25% with WAM to 70% with CW-WAM; adding force feedback to CW-WAM reduces force-tracking error from 4.8 to 2.7 N.</figcaption></figure>
-    </section>
     <section id="method" class="research-section model-section wrap" aria-labelledby="method-title">
-      <h2 id="method-title">Structured action–wrench modeling</h2>
+      <h2 id="method-title">CW-WAM: Contact-Wrench World Action Model</h2>
+    <div id="teaser" class="method-part method-overview" aria-labelledby="teaser-title">
+      <h3 id="teaser-title">Wrench input and prediction</h3>
+      <figure><a href="assets/images/fig01-teaser.png" target="_blank" rel="noopener"><img src="assets/images/fig01-teaser.png" alt="CW-WAM helps robots use contact forces to guide their movements." width="5617" height="2184" loading="lazy"></a><figcaption><a href="assets/papers/cw-wam-paper.pdf#page=1" target="_blank" rel="noopener">Fig. 1.</a> CW-WAM helps robots use contact forces to guide their movements. It learns from past motions and wrist force measurements to predict both how to move and the forces expected during contact. These predictions guide motion corrections during execution. Peg insertion success increases from 25% with WAM to 70% with CW-WAM; adding force feedback to CW-WAM reduces force-tracking error from 4.8 to 2.7 N.</figcaption></figure>
+    </div>
+    <div id="architecture" class="method-part" aria-labelledby="architecture-title">
+      <h3 id="architecture-title">Structured action–wrench modeling</h3>
       <div class="model-layout">
       <figure class="model-figure"><a href="assets/images/architecture.webp" target="_blank" rel="noopener"><img src="assets/images/architecture.webp" alt="CW-WAM jointly predicts video, motion, and wrench from visual observations, language, robot state, and interaction history. Paired motion–wrench tokens capture recent interactions, while long-term wrench memory retains earlier contact information." width="2600" height="1333" loading="lazy"></a><figcaption><a href="assets/papers/cw-wam-paper.pdf#page=2" target="_blank" rel="noopener">Fig. 2.</a> CW-WAM jointly predicts video, motion, and wrench from visual observations, language, robot state, and interaction history.</figcaption></figure>
       <div class="model-notes">
-        <article><h3>Recent paired history</h3><p>The interaction module pairs past motion commands with measured wrenches from the same time interval.</p></article>
-        <article><h3>Pair-causal attention</h3><p>Pair-causal attention links each future wrench to its paired action and earlier pairs.</p></article>
-        <article><h3>Long-term wrench memory</h3><p>It retains preceding payload tension or sustained resistance.</p></article>
+        <article><h4>Recent paired history</h4><p>The interaction module pairs past motion commands with measured wrenches from the same time interval.</p></article>
+        <article><h4>Pair-causal attention</h4><p>Pair-causal attention links each future wrench to its paired action and earlier pairs.</p></article>
+        <article><h4>Long-term wrench memory</h4><p>It retains preceding payload tension or sustained resistance.</p></article>
       </div>
       </div>
-    </section>
-    <section id="control" class="research-section control-section wrap" aria-labelledby="control-title">
-      <div class="control-copy"><h2 id="control-title">Slow–fast motion–force control</h2><p>The admittance controller computes pose corrections at 20 Hz. The corrected motion waypoints are then interpolated into smooth trajectories for a 1-kHz robot controller.</p></div>
+    </div>
+    <div id="control" class="method-part control-section" aria-labelledby="control-title">
+      <div class="control-copy"><h3 id="control-title">Slow–fast motion–force control</h3><p>The admittance controller computes pose corrections at 20 Hz. The corrected motion waypoints are then interpolated into smooth trajectories for a 1-kHz robot controller.</p></div>
       <figure><a href="assets/images/execution.webp" target="_blank" rel="noopener"><img src="assets/images/execution.webp" alt="Admittance corrects nominal base-frame poses before IK." width="2600" height="2404" loading="lazy"></a><figcaption><a href="assets/papers/cw-wam-paper.pdf#page=3" target="_blank" rel="noopener">Fig. 3.</a> Admittance corrects base-frame poses before IK. </figcaption></figure>
+    </div>
     </section>
     <section id="results" class="research-section results wrap" aria-labelledby="results-title">
       <h2 id="results-title">Task outcomes and execution quality</h2>
@@ -113,7 +116,22 @@
       <div id="result-feedback" class="result-panel" role="tabpanel" aria-labelledby="result-tab-feedback" tabindex="0"><figure><a href="assets/images/wrench-feedback.webp" target="_blank" rel="noopener"><img src="assets/images/wrench-feedback.webp" alt="Force and torque tracking for peg insertion (left) and whiteboard wiping (right). (a–f) Measured and reference magnitudes, with three-axis force RMSE labels. Each example is selected from the trial whose force variation is closest to the group median. (g,h) Force variation (solid bars, left axis) and torque variation (hatched bars, right axis). Aggregate bars summarize 10 trials per condition." width="2018" height="2577" loading="lazy"></a><figcaption><a href="assets/papers/cw-wam-paper.pdf#page=8" target="_blank" rel="noopener">Fig. 7.</a> Force and torque tracking for peg insertion (left) and whiteboard wiping (right). (a–f) Measured and reference magnitudes, with three-axis force RMSE labels. Each example is selected from the trial whose force variation is closest to the group median. (g,h) Force variation (solid bars, left axis) and torque variation (hatched bars, right axis). Aggregate bars summarize 10 trials per condition.</figcaption></figure></div>
       <noscript><style>.result-tabs{display:none}</style></noscript>
     </section>
+    <section id="citation" class="research-section citation-section wrap" aria-labelledby="citation-title">
+      <h2 id="citation-title">Citation</h2>
+      <pre tabindex="0" aria-label="BibTeX citation"><code class="language-bibtex">@misc{cw_wam,
+  title = {{CW-WAM}: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation},
+  author = {{Anonymous Authors}},
+  url = {https://cw-wam-project.github.io/}
+}</code></pre>
+    </section>
   </main>
-  <footer class="footer wrap"><a href="#main">CW-WAM</a><span>Anonymous Authors</span></footer>
+  <footer class="footer">
+    <div class="footer-content narrow">
+      <p>Website design inspired by <a href="https://nerfies.github.io/" target="_blank" rel="noopener">NeRFies</a>.</p>
+      <p>This website is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+      <p>You may reuse and adapt the <a href="https://github.com/cw-wam-project/cw-wam-project.github.io" target="_blank" rel="noopener">website source code</a> under this license, with attribution and share-alike licensing. Please retain a link to <a href="https://nerfies.github.io/" target="_blank" rel="noopener">NeRFies</a> in the footer.</p>
+      <div class="footer-identity"><a href="#main">CW-WAM</a><span>Anonymous Authors</span></div>
+    </div>
+  </footer>
 </body>
 </html>
