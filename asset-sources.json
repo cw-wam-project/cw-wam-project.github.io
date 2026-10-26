@@ -136,6 +136,7 @@
       "assets/images/simulation/peg-cw-wam.png": "peg-cw-wam.png"
     },
     "operation": "Byte-identical copies of the supplied rollout figures; no curve or axis changes.",
-    "interpretation": "Selected individual Isaac Lab rollouts, not aggregate statistics. Peg figures use different episodes and plot scales; they are not a paired-seed comparison."
+    "interpretation": "Selected individual Isaac Lab rollouts, not aggregate statistics. Peg figures use different episodes and plot scales; they are not a paired-seed comparison.",
+    "peg_presentation": "Peg website figures regenerated from the same source episodes using show_phase=False: three time-series panels and the XY path, with the model-execution/phase panel omitted. Original rollout data, diagnostic images, and numeric metrics are unchanged."
   }
 }
