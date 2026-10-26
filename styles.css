@@ -136,3 +136,23 @@ figcaption a{font-weight:600;color:var(--blue);white-space:nowrap;text-decoratio
 }
 @media(max-width:390px){.hero-grid{gap:25px 14px}.hero-tile span{font-size:17px}.project-subtitle{font-size:26px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Selected simulation rollouts: compact figures with original-resolution links. */
+.simulation-intro{text-align:center;margin-bottom:26px}
+.simulation-intro h2{margin-bottom:10px}
+.simulation-intro p{margin:0;color:var(--muted);font-size:17px}
+.simulation-section h3{margin:0;font-size:23px;letter-spacing:-.4px}
+.simulation-description{margin:5px 0 14px;color:var(--muted);font-size:14px}
+.simulation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px}
+.simulation-card{min-width:0;border:1px solid var(--line);border-radius:9px;padding:12px}
+.simulation-method{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px 8px;margin-bottom:7px}
+.simulation-method h4{margin:0;font-size:16px;font-weight:600}
+.simulation-method span{color:var(--muted);font-size:11px;white-space:nowrap}
+.simulation-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;background:var(--c)}
+.simulation-card img{width:100%;height:auto}
+.simulation-card figcaption{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
+.simulation-peg{margin-top:25px;padding-top:22px;border-top:1px solid var(--line)}
+.simulation-note{margin:11px 0 0;font-size:12px;color:var(--muted)}
+.simulation-footnote{margin-top:22px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:14px}
+.simulation-card a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media(max-width:640px){.simulation-grid{grid-template-columns:1fr}.simulation-footnote{flex-direction:column;gap:4px}}

@@ -9,7 +9,7 @@
   <meta property="og:type" content="website"><meta property="og:url" content="https://cw-wam-project.github.io/">
   <meta property="og:image" content="https://cw-wam-project.github.io/assets/images/overview-poster.jpg"><meta property="og:image:alt" content="CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261002-code-disabled1"><script src="script.js?v=20260928-previews1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261026-simulation1"><script src="script.js?v=20260928-previews1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">CW-WAM</a>
@@ -35,6 +35,8 @@
     </section>
     <nav class="section-nav wrap" aria-label="CW-WAM">
       <a href="#demos">Real-robot evaluation and metrics</a>
+      <span class="nav-separator" aria-hidden="true">·</span>
+      <a href="#simulation">Simulation evaluation</a>
       <span class="nav-separator" aria-hidden="true">·</span>
       <a href="#method">Contact-Wrench World Action Model</a>
       <span class="nav-separator" aria-hidden="true">·</span>
@@ -79,6 +81,53 @@
         <noscript><p><a href="assets/videos/transport-repeated-wam.mp4">Video</a> <a href="assets/videos/transport-repeated-wam-wrench.mp4">Video</a> <a href="assets/videos/transport-repeated-cw-wam.mp4">Video</a></p></noscript>
       </article>
       <noscript><style>.video-modes{display:none}</style></noscript>
+    </section>
+    <section id="simulation" class="research-section simulation-section wrap" aria-labelledby="simulation-title">
+<header class="simulation-intro"><h2 id="simulation-title">Simulation evaluation</h2><p>Closed-loop rollouts in Isaac Lab: force regulation in wiping and contact-guided peg insertion.</p></header>
+<section aria-labelledby="simulation-wiping-title">
+<h3 id="simulation-wiping-title">Whiteboard wiping</h3>
+<p class="simulation-description">Top panels show contact force against a 10 N reference; bottom panels show stain removal.</p>
+<div class="simulation-grid">
+<figure class="simulation-card">
+<div class="simulation-method"><h4><i aria-hidden="true" class="simulation-dot" style="--c:var(--wam)"></i>WAM</h4><span>Without admittance</span></div>
+<a href="assets/images/simulation/wiping-wam.png" target="_blank" rel="noopener" aria-label="Open WAM wiping figure at full resolution"><img width="1920" height="1120" loading="lazy" src="assets/images/simulation/wiping-wam.png" alt="WAM wiping force and stain-removal curves"></a>
+<figcaption>Late contact, with little stain removal in this rollout.</figcaption>
+</figure>
+<figure class="simulation-card">
+<div class="simulation-method"><h4><i aria-hidden="true" class="simulation-dot" style="--c:var(--wrench)"></i>WAM + Wrench</h4><span>Without admittance</span></div>
+<a href="assets/images/simulation/wiping-wam-wrench.png" target="_blank" rel="noopener" aria-label="Open WAM plus Wrench wiping figure at full resolution"><img width="1920" height="1120" loading="lazy" src="assets/images/simulation/wiping-wam-wrench.png" alt="WAM plus Wrench wiping force and stain-removal curves"></a>
+<figcaption>Intermittent force drops accompany partial stain removal.</figcaption>
+</figure>
+<figure class="simulation-card">
+<div class="simulation-method"><h4><i aria-hidden="true" class="simulation-dot" style="--c:var(--cw)"></i>CW-WAM</h4><span>Without admittance</span></div>
+<a href="assets/images/simulation/wiping-cw-wam.png" target="_blank" rel="noopener" aria-label="Open CW-WAM wiping figure at full resolution"><img width="1920" height="1120" loading="lazy" src="assets/images/simulation/wiping-cw-wam.png" alt="CW-WAM wiping measured and predicted forces with stain-removal progress"></a>
+<figcaption>Sustained contact supports progressive stain removal; force drift remains.</figcaption>
+</figure>
+<figure class="simulation-card">
+<div class="simulation-method"><h4><i aria-hidden="true" class="simulation-dot" style="--c:var(--adm)"></i>CW-WAM + Adm.</h4><span>Active admittance</span></div>
+<a href="assets/images/simulation/wiping-cw-wam-admittance.png" target="_blank" rel="noopener" aria-label="Open CW-WAM active-admittance wiping figure at full resolution"><img width="1920" height="1120" loading="lazy" src="assets/images/simulation/wiping-cw-wam-admittance.png" alt="CW-WAM active admittance force and stain-removal curves"></a>
+<figcaption>Predicted-force feedback adjusts execution; force oscillations remain.</figcaption>
+</figure>
+</div>
+</section>
+<section class="simulation-peg" aria-labelledby="simulation-peg-title">
+<h3 id="simulation-peg-title">Peg-in-hole insertion</h3>
+<p class="simulation-description">Contact force, alignment, insertion depth, and XY trajectories reveal distinct rollout behaviors.</p>
+<div class="simulation-grid">
+<figure class="simulation-card">
+<div class="simulation-method"><h4><i aria-hidden="true" class="simulation-dot" style="--c:var(--wam)"></i>WAM</h4><span>Episode 000001</span></div>
+<a href="assets/images/simulation/peg-wam.png" target="_blank" rel="noopener" aria-label="Open WAM peg diagnostics at full resolution"><img width="2850" height="1800" loading="lazy" src="assets/images/simulation/peg-wam.png" alt="WAM peg diagnostics showing lateral drift and no substantial insertion"></a>
+<figcaption>Lateral offset grows while the peg tip remains near the hole mouth.</figcaption>
+</figure>
+<figure class="simulation-card">
+<div class="simulation-method"><h4><i aria-hidden="true" class="simulation-dot" style="--c:var(--cw)"></i>CW-WAM</h4><span>Episode 000000</span></div>
+<a href="assets/images/simulation/peg-cw-wam.png" target="_blank" rel="noopener" aria-label="Open CW-WAM peg diagnostics at full resolution"><img width="2850" height="1800" loading="lazy" src="assets/images/simulation/peg-cw-wam.png" alt="CW-WAM peg diagnostics showing alignment adjustment, insertion and success"></a>
+<figcaption>Alignment adjustment is followed by insertion and a successful hold.</figcaption>
+</figure>
+</div>
+<p class="simulation-note">Peg examples use different episodes and plot scales; they are qualitative examples, not a paired-seed comparison.</p>
+</section>
+<div class="simulation-footnote"><span>Selected rollouts · not aggregate statistics</span><span>Click any figure to view the original at full resolution ↗</span></div>
     </section>
     <section id="method" class="research-section model-section wrap" aria-labelledby="method-title">
       <h2 id="method-title">CW-WAM: Contact-Wrench World Action Model</h2>

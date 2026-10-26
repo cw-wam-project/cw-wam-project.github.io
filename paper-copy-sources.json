@@ -27,7 +27,7 @@
       ]
     },
     "model_caption": {
-      "text": "CW-WAM jointly predicts video, motion, and wrench from visual observations, language, robot state, and interaction history. Paired motion–wrench tokens capture recent interactions, while long-term wrench memory retains earlier contact information.",
+      "text": "CW-WAM jointly predicts video, motion, and wrench from visual observations, language, robot state, and interaction history.",
       "pages": [
         2
       ]
@@ -322,6 +322,77 @@
         7,
         8
       ]
+    },
+    "model_history_heading": {
+      "text": "Recent paired history",
+      "pages": [
+        2
+      ]
+    },
+    "model_history_text": {
+      "text": "The interaction module pairs past motion commands with measured wrenches from the same time interval.",
+      "pages": [
+        3
+      ]
+    },
+    "model_attention_heading": {
+      "text": "Pair-causal attention",
+      "pages": [
+        2
+      ]
+    },
+    "model_attention_text": {
+      "text": "Pair-causal attention links each future wrench to its paired action and earlier pairs.",
+      "pages": [
+        2
+      ]
+    },
+    "model_memory_heading": {
+      "text": "Long-term wrench memory",
+      "pages": [
+        3
+      ]
+    },
+    "model_memory_text": {
+      "text": "It retains preceding payload tension or sustained resistance.",
+      "pages": [
+        3
+      ]
+    },
+    "teaser_caption": {
+      "text": "CW-WAM helps robots use contact forces to guide their movements. It learns from past motions and wrist force measurements to predict both how to move and the forces expected during contact. These predictions guide motion corrections during execution. Peg insertion success increases from 25% with WAM to 70% with CW-WAM; adding force feedback to CW-WAM reduces force-tracking error from 4.8 to 2.7 N.",
+      "pages": [
+        1
+      ]
+    },
+    "teaser_heading": {
+      "text": "Wrench input and prediction",
+      "pages": [
+        1
+      ]
+    },
+    "method_group_heading": {
+      "text": "CW-WAM: Contact-Wrench World Action Model",
+      "pages": [
+        2
+      ]
+    },
+    "method_navigation": {
+      "text": "Contact-Wrench World Action Model",
+      "pages": [
+        2
+      ]
+    },
+    "results_navigation": {
+      "text": "Task outcomes and execution quality",
+      "pages": [
+        6
+      ]
     }
+  },
+  "explicit_user_exceptions": {
+    "Paper": "User explicitly requested the literal Paper label in place of the paper icon.",
+    "Code": "User requested the Code label; it is currently a disabled button without a link, pending a repository URL.",
+    "Citation and footer": "User explicitly requested a Citation block, template credit, source-code link, and CC BY-SA 4.0 notice similar to the Scaling Up page. These utility/legal texts are exceptions to the paper-only prose policy. Citation uses the paper title and Anonymous Authors, with no unconfirmed venue or year."
   }
 }

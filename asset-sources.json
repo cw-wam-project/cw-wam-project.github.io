@@ -124,5 +124,18 @@
       "method": "CW-WAM",
       "derivation": "Full-duration 640x360 H.264, CRF 24, yuv420p, faststart, no audio; source frame rate and timing preserved."
     }
+  },
+  "simulation_sources": {
+    "source_root": "cw-wam-franka/simulation/inference/outputs/website",
+    "files": {
+      "assets/images/simulation/wiping-wam.png": "contact_force-wam.png",
+      "assets/images/simulation/wiping-wam-wrench.png": "contact_force-wam_wrench_padded.png",
+      "assets/images/simulation/wiping-cw-wam.png": "contact_force-cw_wam.png",
+      "assets/images/simulation/wiping-cw-wam-admittance.png": "contact_force-cw_wam_active.png",
+      "assets/images/simulation/peg-wam.png": "peg-wam.png",
+      "assets/images/simulation/peg-cw-wam.png": "peg-cw-wam.png"
+    },
+    "operation": "Byte-identical copies of the supplied rollout figures; no curve or axis changes.",
+    "interpretation": "Selected individual Isaac Lab rollouts, not aggregate statistics. Peg figures use different episodes and plot scales; they are not a paired-seed comparison."
   }
 }
