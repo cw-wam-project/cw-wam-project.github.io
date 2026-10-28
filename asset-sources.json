@@ -96,7 +96,7 @@
       "operation": "Concatenate supplied trials 01–08 in order without re-encoding; original 8x playback preserved."
     }
   },
-  "presentation_revision": "20261001-citation1",
+  "presentation_revision": "20261028-sim-side1",
   "copy_source": "paper-copy-sources.json",
   "homepage_previews": {
     "peg": {
@@ -137,6 +137,30 @@
     },
     "operation": "Byte-identical copies of the supplied rollout figures; no curve or axis changes.",
     "interpretation": "Selected individual Isaac Lab rollouts, not aggregate statistics. Peg figures use different episodes and plot scales; they are not a paired-seed comparison.",
-    "peg_presentation": "Peg website figures regenerated from the same source episodes using show_phase=False: three time-series panels and the XY path, with the model-execution/phase panel omitted. Original rollout data, diagnostic images, and numeric metrics are unchanged."
+    "peg_presentation": "Peg website figures regenerated from the same source episodes using show_phase=False: three time-series panels and the XY path, with the model-execution/phase panel omitted. Original rollout data, diagnostic images, and numeric metrics are unchanged.",
+    "comparison_examples": {
+      "generator": "cw-wam-franka/simulation/inference/plot_website_comparison.py",
+      "data_definitions": "cw-wam-franka/simulation/inference/outputs/website/comparison_preview/metrics.json",
+      "files": {
+        "assets/images/simulation/wiping-comparison.png": "comparison_preview/wiping-comparison.png",
+        "assets/images/simulation/peg-comparison.png": "comparison_preview/peg-comparison.png"
+      },
+      "scope": "Selected individual rollouts used in the original website figures; no across-trial aggregation. Peg offset/phase panels omitted. Original image files retained."
+    },
+    "scene_images": {
+      "files": {
+        "assets/images/simulation/peg-scene-01.png": "appendix/Screenshot 2026-10-28 at 16.26.20.png",
+        "assets/images/simulation/peg-scene-02.png": "appendix/Screenshot 2026-10-28 at 16.26.41.png",
+        "assets/images/simulation/wiping-scene-01.png": "appendix/Screenshot 2026-10-28 at 16.27.28.png",
+        "assets/images/simulation/wiping-scene-02.png": "appendix/Screenshot 2026-10-28 at 16.27.51.png"
+      },
+      "operation": "Byte-identical copies of user-provided screenshots, grouped by visible task. No method, outcome, or trajectory correspondence inferred."
+    }
+  },
+  "simulation_wiping_layout": {
+    "revision": "20261028-pred-b",
+    "primary": "assets/images/simulation/wiping-comparison.png",
+    "prediction": "assets/images/simulation/wiping-prediction.png",
+    "note": "Panel b shows recorded predicted normal contact force for the three methods with predictions. WAM is omitted from b. Metrics unchanged."
   }
 }
