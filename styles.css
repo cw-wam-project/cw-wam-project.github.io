@@ -143,7 +143,7 @@ figcaption a{font-weight:600;color:var(--blue);white-space:nowrap;text-decoratio
 .simulation-panel>figure img{width:100%;margin:auto}
 .simulation-panel figcaption,.simulation-caption{font-size:17px;line-height:1.65;color:var(--muted)}
 .simulation-caption{margin:16px 0 0}
-.simulation-wiping-details{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:center;margin-top:38px}
+.simulation-wiping-details{margin:32px auto 0;max-width:920px}
 .simulation-scene-detail img{border-radius:6px;width:100%}
 .simulation-table-wrap{min-width:0;overflow-x:auto}
 .simulation-table{width:100%;border-collapse:collapse;font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -171,3 +171,42 @@ figcaption a{font-weight:600;color:var(--blue);white-space:nowrap;text-decoratio
 .simulation-peg-details figcaption{font-size:16px;margin-top:16px}
 @media(max-width:800px){.simulation-wiping-details{grid-template-columns:1fr;gap:24px}.simulation-scene-detail{max-width:240px;margin:auto}.simulation-peg-details{grid-template-columns:1fr;gap:28px}[data-trajectory-canvas]{height:400px}}
 @media(max-width:640px){.simulation-section{width:calc(100% - 36px)}.simulation-panel{padding-top:24px}.simulation-table{font-size:15px}.simulation-table th,.simulation-table td{padding:12px 8px}.trajectory-toolbar .tab-button{font-size:15px;padding:8px 10px}[data-trajectory-canvas]{height:360px}.simulation-panel figcaption,.simulation-caption{font-size:16px}}
+
+/* Reviewer additions: clear scope, actual rollout frames, execution diagnostics. */
+.section-kicker{text-align:center;color:var(--blue);font-size:17px;font-weight:600;letter-spacing:.3px;margin:0 0 12px}
+.simulation-outcome-summary{display:grid;grid-template-columns:1.5fr 1fr;gap:44px;max-width:1000px;margin:30px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+.simulation-outcome-summary h3{font-size:19px;line-height:1.4;font-weight:600;margin:0 0 18px}
+.simulation-outcome-summary dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px;margin:0}
+.simulation-outcome-summary dt{font-size:15px;color:var(--muted)}
+.simulation-outcome-summary dd{font-size:24px;line-height:1.4;font-weight:600;font-variant-numeric:tabular-nums;margin:4px 0 0}
+.simulation-outcome-summary dd span{font-size:16px;font-weight:400}
+.simulation-outcome-summary p{font-size:15px;color:var(--muted);margin:12px 0 0}
+.simulation-rollout{max-width:960px;margin:0 auto 40px}
+.simulation-video-methods .tab-button{font-size:17px;flex:1 0 auto}
+.simulation-video-methods .method-key{margin-right:0}
+.rollout-layout{display:block;padding-top:20px}
+.rollout-layout figure{min-width:0}
+.rollout-layout video{border-radius:8px}
+.rollout-frames{display:grid;grid-template-columns:1fr;gap:14px;min-width:0}
+.rollout-frames img{width:100%;border-radius:6px}
+.rollout-frames figcaption{text-align:center;font-size:15px;margin-top:4px}
+.peg-rollout-frames{max-width:720px;margin:24px auto 0}
+.peg-rollout-frames .rollout-frames{grid-template-columns:1fr 1fr;gap:24px}
+.simulation-tracking{margin:44px 0 0}
+.simulation-tracking h3{text-align:center;font-size:24px;font-weight:600;margin:0 0 18px}
+.simulation-tracking img{max-width:1050px}
+@media(max-width:800px){.rollout-layout{grid-template-columns:1fr}.rollout-layout .rollout-frames{grid-template-columns:1fr 1fr}.simulation-outcome-summary{gap:28px}.simulation-video-methods .tab-button{font-size:16px}}
+@media(max-width:640px){.simulation-outcome-summary{grid-template-columns:1fr;gap:28px}.simulation-outcome-summary dl{gap:16px}.simulation-outcome-summary dd{font-size:22px}.simulation-tracking h3{font-size:22px}.rollout-layout{gap:18px}.peg-rollout-frames .rollout-frames{gap:16px}}
+
+/* Wiping detail: one selected video beside two vertically stacked plots. */
+.simulation-wiping-feature{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:32px;align-items:center}
+.simulation-wiping-feature figure{min-width:0}
+.simulation-wiping-charts{display:grid;gap:18px;min-width:0}
+.simulation-wiping-charts img{width:100%;height:auto}
+.simulation-chart-legend{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 16px;list-style:none;margin:0;padding:0;font:15px/1.4 Georgia,"Times New Roman",serif;color:var(--ink)}
+.simulation-chart-legend li{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.method-line{display:inline-block;flex-shrink:0;width:23px;border-top:2.5px solid var(--key)}
+.method-line.method-0{border-top-style:dashed}
+.method-line.method-1{border:0;height:2.5px;background:repeating-linear-gradient(to right,var(--key) 0 8px,transparent 8px 12px,var(--key) 12px 14px,transparent 14px 18px)}
+.video-selection-note{display:block;font-size:15px;color:var(--muted);margin-top:6px}
+@media(max-width:800px){.simulation-wiping-feature{grid-template-columns:1fr;gap:30px}.simulation-wiping-charts{max-width:640px;width:100%;margin:auto}}

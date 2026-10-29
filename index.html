@@ -9,10 +9,11 @@
   <meta property="og:type" content="website"><meta property="og:url" content="https://cw-wam-project.github.io/">
   <meta property="og:image" content="https://cw-wam-project.github.io/assets/images/overview-poster.jpg"><meta property="og:image:alt" content="CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261029-simtabs1"><script src="script.js?v=20261029-simtabs1" defer></script>
-  <script src="figure-tabs.js?v=20261029-simtabs1" defer></script>
-  <script src="assets/data/peg-trajectory-data.js?v=20261029-simtabs1" defer></script>
-  <script src="trajectory-viewer.js?v=20261029-simtabs1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261029-wiping-layout5"><script src="script.js?v=20261029-wiping-layout5" defer></script>
+  <script src="figure-tabs.js?v=20261029-wiping-layout5" defer></script>
+  <script src="assets/data/peg-trajectory-data.js?v=20261029-wiping-layout5" defer></script>
+  <script src="trajectory-viewer.js?v=20261029-wiping-layout5" defer></script>
+  <script src="simulation-video.js?v=20261029-wiping-layout5" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">CW-WAM</a>
@@ -108,10 +109,11 @@
     </div>
     </section>
     <section id="results" class="research-section results wrap" aria-labelledby="results-title">
+      <p class="section-kicker">Real-robot evaluation</p>
       <h2 id="results-title">Task outcomes and execution quality</h2>
       <div class="result-tabs tab-strip" role="tablist" aria-label="Experiments">
-<button class="tab-button" type="button" id="result-tab-outcomes" role="tab" data-result="outcomes" aria-selected="false" aria-controls="result-outcomes" tabindex="-1">Task outcomes</button>
 <button class="tab-button" type="button" id="result-tab-profiles" role="tab" data-result="profiles" aria-selected="true" aria-controls="result-profiles" tabindex="0">Contact-force curves</button>
+<button class="tab-button" type="button" id="result-tab-outcomes" role="tab" data-result="outcomes" aria-selected="false" aria-controls="result-outcomes" tabindex="-1">Task outcomes</button>
 <button class="tab-button" type="button" id="result-tab-load" role="tab" data-result="load" aria-selected="false" aria-controls="result-load" tabindex="-1">Load-dependent lifting</button>
 <button class="tab-button" type="button" id="result-tab-feedback" role="tab" data-result="feedback" aria-selected="false" aria-controls="result-feedback" tabindex="-1">Force and torque tracking</button>
       </div>
@@ -132,14 +134,15 @@
         <figure><a href="assets/images/simulation/simulation-contact-profiles.svg" target="_blank" rel="noopener"><img src="assets/images/simulation/simulation-contact-profiles.svg" loading="lazy" alt="Whiteboard wiping and peg insertion: scene images beside measured contact-force curves"></a><figcaption>Selected simulation rollouts. Wiping: action-interval mean normal contact force. Peg insertion: resultant contact force. Curves retain recorded simulation time; peg examples use different episodes and durations.</figcaption></figure>
       </div>
       <div id="simulation-wiping" class="simulation-panel" role="tabpanel" aria-labelledby="simulation-tab-wiping" tabindex="0">
-        <figure><a href="assets/images/simulation/wiping-supplementary.svg" target="_blank" rel="noopener"><img src="assets/images/simulation/wiping-supplementary.svg" loading="lazy" alt="Model-predicted normal contact force and percentage of stain removed for selected wiping rollouts"></a><figcaption>WAM has no wrench prediction. Dotted line: 10 N reference. Stain removed describes the cleared area in each selected rollout, not success rate across trials.</figcaption></figure>
-        <div class="simulation-wiping-details">
-          <a class="simulation-scene-detail" href="assets/images/simulation/wiping-scene-02.png" target="_blank" rel="noopener"><img src="assets/images/simulation/wiping-scene-02.png" loading="lazy" width="852" height="794" alt="Whiteboard wiping simulation scene"></a>
-          <div class="simulation-table-wrap"><table class="simulation-table"><caption>Wiping progress and contact force</caption><thead><tr><th scope="col">Method</th><th scope="col">Stain removed</th><th scope="col">Mean [N]</th><th scope="col">Peak [N]</th></tr></thead><tbody><tr><th scope="row"><span class="method-key method-0"></span>WAM</th><td>0.2%</td><td>7.46</td><td>17.10</td></tr>
-<tr><th scope="row"><span class="method-key method-1"></span>WAM + Wrench</th><td>57.7%</td><td>7.36</td><td>15.93</td></tr>
-<tr><th scope="row"><span class="method-key method-2"></span>CW-WAM</th><td>67.3%</td><td>10.79</td><td>17.51</td></tr>
-<tr><th scope="row"><span class="method-key method-3"></span>CW-WAM + Adm.</th><td>68.5%</td><td>8.42</td><td>17.69</td></tr></tbody></table><p class="simulation-caption">One rollout per method. Mean and peak use the recorded wiping phase, including contact gaps; the mean is time-weighted.</p></div>
+        <div class="simulation-wiping-feature">
+          <figure class="simulation-video wiping-feature-video"><video controls playsinline preload="none" poster="assets/images/simulation/wiping-cw-wam-admittance-start.jpg" width="1280" height="720" aria-label="CW-WAM + Adm. whiteboard wiping simulation"><source src="assets/videos/simulation-wiping-cw-wam-admittance.mp4" type="video/mp4"><a href="assets/videos/simulation-wiping-cw-wam-admittance.mp4">Video</a></video><figcaption>CW-WAM + Adm. · Whiteboard wiping<span class="video-selection-note">Selected for the highest stain removal among these four rollouts (68.5%).</span></figcaption></figure>
+          <div class="simulation-wiping-charts">
+            <ul class="simulation-chart-legend" aria-label="Methods"><li><span class="method-line method-0" aria-hidden="true"></span>WAM</li><li><span class="method-line method-1" aria-hidden="true"></span>WAM + Wrench</li><li><span class="method-line method-2" aria-hidden="true"></span>CW-WAM</li><li><span class="method-line method-3" aria-hidden="true"></span>CW-WAM + Adm.</li></ul>
+            <figure><a href="assets/images/simulation/wiping-predicted-force.svg" target="_blank" rel="noopener"><img src="assets/images/simulation/wiping-predicted-force.svg" width="1440" height="680" loading="lazy" alt="Model-predicted normal contact force for WAM + Wrench, CW-WAM and CW-WAM + Adm."></a></figure>
+            <figure><a href="assets/images/simulation/wiping-progress-detail.svg" target="_blank" rel="noopener"><img src="assets/images/simulation/wiping-progress-detail.svg" width="1440" height="680" loading="lazy" alt="Stain removed over simulation time for all four methods"></a></figure>
+          </div>
         </div>
+        <p class="simulation-caption">One rollout per method (seed 0). Dotted line: 10 N reference. WAM has no wrench prediction; stain removed is cleared area, not trial success rate.</p>
       </div>
       <div id="simulation-peg" class="simulation-panel" role="tabpanel" aria-labelledby="simulation-tab-peg" tabindex="0">
         <div class="trajectory-viewer" data-trajectory-viewer>
@@ -158,7 +161,7 @@
           <figure class="simulation-video"><video controls playsinline preload="none" poster="assets/images/simulation/peg-rollout-poster.jpg" width="1280" height="720" aria-label="CW-WAM peg-in-hole simulation rollout"><source src="assets/videos/simulation-peg-cw-wam.mp4" type="video/mp4"><a href="assets/videos/simulation-peg-cw-wam.mp4">Video</a></video><figcaption>CW-WAM · Peg-in-hole insertion</figcaption></figure>
         </div>
       </div>
-      <noscript><style>.simulation-tabs,.trajectory-toolbar,.trajectory-help,[data-trajectory-canvas]{display:none}.simulation-panel{margin-top:36px}</style></noscript>
+      <noscript><style>.simulation-video-methods,.simulation-tabs,.trajectory-toolbar,.trajectory-help,[data-trajectory-canvas]{display:none}.simulation-panel{margin-top:36px}</style></noscript>
     </section>
     <section id="citation" class="research-section citation-section wrap" aria-labelledby="citation-title">
       <h2 id="citation-title">Citation</h2>

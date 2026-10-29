@@ -96,7 +96,7 @@
       "operation": "Concatenate supplied trials 01–08 in order without re-encoding; original 8x playback preserved."
     }
   },
-  "presentation_revision": "20261029-simtabs1",
+  "presentation_revision": "20261029-wiping-layout5",
   "copy_source": "paper-copy-sources.json",
   "homepage_previews": {
     "peg": {
@@ -179,5 +179,155 @@
       "source": "cw-wam-franka/simulation/inference/outputs/peg_step20000_20261020_094400/cw_wam_none/episode_000000/front_rollout.mp4",
       "operation": "Byte-identical copy; first-frame poster extracted with ffmpeg."
     }
+  },
+  "review_additions": {
+    "video_and_frames": [
+      {
+        "task": "wiping",
+        "method": "WAM",
+        "source": "cw-wam-franka/simulation/inference/outputs/wiping_step10000_20261012_152740/wam_none/episode_000000/front_rollout.mp4",
+        "video": "simulation-wiping-wam.mp4",
+        "source_size_bytes": 536232,
+        "width": 1280,
+        "height": 720,
+        "frame_count": 225,
+        "duration_s": 15.0,
+        "frame_rate": "15/1",
+        "frames": {
+          "start": {
+            "file": "wiping-wam-start.jpg",
+            "decoded_frame_index": 0,
+            "size_bytes": 26695
+          },
+          "end": {
+            "file": "wiping-wam-end.jpg",
+            "decoded_frame_index": 224,
+            "size_bytes": 29846
+          }
+        },
+        "operation": "Video copied byte-identically. First and final decoded video frames extracted as JPEG quality 2; no cropping, resizing, or annotation."
+      },
+      {
+        "task": "wiping",
+        "method": "WAM + Wrench",
+        "source": "cw-wam-franka/simulation/inference/outputs/wiping_step10000_20261012_152740/wam_wrench_padded_none/episode_000000/front_rollout.mp4",
+        "video": "simulation-wiping-wam-wrench.mp4",
+        "source_size_bytes": 502238,
+        "width": 1280,
+        "height": 720,
+        "frame_count": 225,
+        "duration_s": 15.0,
+        "frame_rate": "15/1",
+        "frames": {
+          "start": {
+            "file": "wiping-wam-wrench-start.jpg",
+            "decoded_frame_index": 0,
+            "size_bytes": 26503
+          },
+          "end": {
+            "file": "wiping-wam-wrench-end.jpg",
+            "decoded_frame_index": 224,
+            "size_bytes": 26551
+          }
+        },
+        "operation": "Video copied byte-identically. First and final decoded video frames extracted as JPEG quality 2; no cropping, resizing, or annotation."
+      },
+      {
+        "task": "wiping",
+        "method": "CW-WAM",
+        "source": "cw-wam-franka/simulation/inference/outputs/wiping_step10000_20261012_152740/cw_wam_none/episode_000000/front_rollout.mp4",
+        "video": "simulation-wiping-cw-wam.mp4",
+        "source_size_bytes": 523229,
+        "width": 1280,
+        "height": 720,
+        "frame_count": 225,
+        "duration_s": 15.0,
+        "frame_rate": "15/1",
+        "frames": {
+          "start": {
+            "file": "wiping-cw-wam-start.jpg",
+            "decoded_frame_index": 0,
+            "size_bytes": 26613
+          },
+          "end": {
+            "file": "wiping-cw-wam-end.jpg",
+            "decoded_frame_index": 224,
+            "size_bytes": 28878
+          }
+        },
+        "operation": "Video copied byte-identically. First and final decoded video frames extracted as JPEG quality 2; no cropping, resizing, or annotation."
+      },
+      {
+        "task": "wiping",
+        "method": "CW-WAM + Adm.",
+        "source": "cw-wam-franka/simulation/inference/outputs/wiping_step10000_20261012_152740/cw_wam_active/episode_000000/front_rollout.mp4",
+        "video": "simulation-wiping-cw-wam-admittance.mp4",
+        "source_size_bytes": 524735,
+        "width": 1280,
+        "height": 720,
+        "frame_count": 225,
+        "duration_s": 15.0,
+        "frame_rate": "15/1",
+        "frames": {
+          "start": {
+            "file": "wiping-cw-wam-admittance-start.jpg",
+            "decoded_frame_index": 0,
+            "size_bytes": 26647
+          },
+          "end": {
+            "file": "wiping-cw-wam-admittance-end.jpg",
+            "decoded_frame_index": 224,
+            "size_bytes": 29122
+          }
+        },
+        "operation": "Video copied byte-identically. First and final decoded video frames extracted as JPEG quality 2; no cropping, resizing, or annotation."
+      },
+      {
+        "task": "peg",
+        "method": "CW-WAM",
+        "source": "cw-wam-franka/simulation/inference/outputs/peg_step20000_20261020_094400/cw_wam_none/episode_000000/front_rollout.mp4",
+        "video": "simulation-peg-cw-wam.mp4",
+        "source_size_bytes": 931250,
+        "width": 1280,
+        "height": 720,
+        "frame_count": 430,
+        "duration_s": 28.666667,
+        "frame_rate": "15/1",
+        "frames": {
+          "start": {
+            "file": "peg-cw-wam-start.jpg",
+            "decoded_frame_index": 0,
+            "size_bytes": 25653
+          },
+          "end": {
+            "file": "peg-cw-wam-end.jpg",
+            "decoded_frame_index": 429,
+            "size_bytes": 26769
+          }
+        },
+        "operation": "Video copied byte-identically. First and final decoded video frames extracted as JPEG quality 2; no cropping, resizing, or annotation."
+      }
+    ],
+    "tracking_error": {
+      "generator": "cw-wam-franka/simulation/inference/plot_website_tracking_error.py",
+      "figures": [
+        "assets/images/simulation/wiping-tracking-error.svg",
+        "assets/images/simulation/peg-tracking-error.svg"
+      ],
+      "metrics": "assets/data/tracking-error-metrics.json",
+      "definition": "Executed target TCP position minus actual TCP position, world XYZ in millimeters, at each recorded physics sample. Full-rollout errors, not success metrics or peg-center trajectory.",
+      "processing": "All recorded samples, no smoothing, time warping, or clipping."
+    },
+    "outcome_summary": "Values from comparison_preview/metrics.json: final erased area and final peg-tip depth. Single selected rollout per method, not aggregate success rates."
+  },
+  "wiping_detail_layout": {
+    "generator": "cw-wam-franka/simulation/inference/plot_website_wiping_detail.py",
+    "figures": [
+      "assets/images/simulation/wiping-predicted-force.svg",
+      "assets/images/simulation/wiping-progress-detail.svg"
+    ],
+    "video": "assets/videos/simulation-wiping-cw-wam-admittance.mp4",
+    "selection": "Highest final stain-removal fraction among the four already displayed seed-0 rollouts (68.5417%). This is not a claim of general superiority or task success.",
+    "layout": "Video on left, prediction and progress plots stacked on right. Existing curve data and all plotted method comparisons unchanged."
   }
 }

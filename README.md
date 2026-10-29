@@ -81,3 +81,13 @@ Wiping results use a primary three-panel figure (measured contact force, model-p
 ## Simulation tabs (2026-10-29)
 
 Simulation now has Contact-force curves, Whiteboard wiping, and Peg-in-hole insertion tabs matching the existing result controls. Both result sections default to contact-force curves. Figures are regenerated from the preserved original NPZ records; the supplied reference determines typography and line style only. Wiping progress is cleared stain area, not across-trial success. The peg tab uses all recorded hole-frame center XYZ samples in a dependency-free canvas viewer with equal spatial scale, drag rotation, keyboard controls, zoom, method toggles, and XY/XZ views, plus a desktop XY projection; tip insertion depth is shown separately. The supplied CW-WAM rollout video is copied without modification. Static trajectory/depth remains available when JavaScript is disabled. The figure generator and source mappings are recorded in asset-sources.json.
+
+## Review refinements (2026-10-29)
+
+Real-robot results are labeled explicitly and contact-force curves are the first tab as well as the default. Simulation contact-force curves include compact single-rollout stain-removal and insertion-depth summaries. Wiping videos switch among four methods together with the corresponding first and final decoded frames; the peg first/final frames come from the displayed CW-WAM clip. Supplementary world-frame TCP tracking-error plots use the complete recorded physics samples, including initial transients. They describe controller execution, not task success or peg-center trajectories. Source details and exact frame indices are recorded in asset-sources.json; generated diagnostics and their metrics use plot_website_tracking_error.py.
+
+The wiping progress/contact-force table and peg Start/End stills are no longer displayed. Wiping videos retain their corresponding Start/End frames; prediction/progress curves and tracking-error figures remain.
+
+The first simulation tab no longer shows the stain-removal/insertion-depth numeric summary. The wiping tab retains method-switchable videos and prediction/progress curves, without separate Start/End stills. Both XYZ tracking-error figures are hidden from the page. The peg 3D trajectory, insertion-depth plot, and video remain. Original assets are retained.
+
+Wiping now places a single CW-WAM + Adm. video on the left, with separate model-prediction and wiping-progress plots stacked on the right. The video is selected by highest final stain removal within the four existing seed-0 examples (68.5%); the plotted comparisons retain all applicable methods and unchanged samples. Narrow screens stack the video above the charts.

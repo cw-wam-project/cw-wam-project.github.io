@@ -1,0 +1,154 @@
+{
+  "definition": "Signed world-frame executed TCP target position minus actual TCP position, in millimeters, paired at each recorded physics sample.",
+  "scope": "Full recorded rollout for each selected episode, including approach and contact; individual diagnostics, not aggregate task performance.",
+  "rmse_definition": "sqrt(sum(dt * error^2) / sum(dt)) per axis; vector RMSE uses sum of the three squared errors before time weighting.",
+  "interpretation": "Execution tracking error is distinct from peg-center position, distance to the hole, and demonstration imitation error. Position deviations during contact and force control do not alone establish policy quality.",
+  "wiping": [
+    {
+      "method": "WAM",
+      "source": "wiping_step10000_20261012_152740/wam_none/episode_000000/physics_steps.npz",
+      "samples": 1500,
+      "first_timestamp_s": 0.01,
+      "last_timestamp_s": 14.999999999999725,
+      "recorded_duration_s": 15.0,
+      "time_weighted_axis_rmse_mm": {
+        "X": 0.3620156295185653,
+        "Y": 1.708438420824479,
+        "Z": 2.557749197543558
+      },
+      "time_weighted_vector_rmse_mm": 3.097078964330742,
+      "axis_min_mm": {
+        "X": -1.3628005981445312,
+        "Y": -1.3447180390357971,
+        "Z": -45.90548574924469
+      },
+      "axis_max_mm": {
+        "X": 2.110719680786133,
+        "Y": 4.312485456466675,
+        "Z": 0.233575701713562
+      }
+    },
+    {
+      "method": "WAM + Wrench",
+      "source": "wiping_step10000_20261012_152740/wam_wrench_padded_none/episode_000000/physics_steps.npz",
+      "samples": 1500,
+      "first_timestamp_s": 0.01,
+      "last_timestamp_s": 14.999999999999725,
+      "recorded_duration_s": 15.0,
+      "time_weighted_axis_rmse_mm": {
+        "X": 0.8271455687747744,
+        "Y": 1.1284563537323393,
+        "Z": 2.8736574150432275
+      },
+      "time_weighted_vector_rmse_mm": 3.196168092146562,
+      "axis_min_mm": {
+        "X": -0.7439851760864258,
+        "Y": -1.7336709424853325,
+        "Z": -45.9437221288681
+      },
+      "axis_max_mm": {
+        "X": 3.3533871173858643,
+        "Y": 4.4234804809093475,
+        "Z": -0.014394521713256836
+      }
+    },
+    {
+      "method": "CW-WAM",
+      "source": "wiping_step10000_20261012_152740/cw_wam_none/episode_000000/physics_steps.npz",
+      "samples": 1500,
+      "first_timestamp_s": 0.01,
+      "last_timestamp_s": 14.999999999999725,
+      "recorded_duration_s": 15.0,
+      "time_weighted_axis_rmse_mm": {
+        "X": 0.6053316328450198,
+        "Y": 1.7824150563317465,
+        "Z": 3.2330098620504595
+      },
+      "time_weighted_vector_rmse_mm": 3.7410937687896526,
+      "axis_min_mm": {
+        "X": -0.8113682270050049,
+        "Y": -1.0013431310653687,
+        "Z": -45.959651470184326
+      },
+      "axis_max_mm": {
+        "X": 2.3374557495117188,
+        "Y": 4.16874885559082,
+        "Z": 0.166282057762146
+      }
+    },
+    {
+      "method": "CW-WAM + Adm.",
+      "source": "wiping_step10000_20261012_152740/cw_wam_active/episode_000000/physics_steps.npz",
+      "samples": 1500,
+      "first_timestamp_s": 0.01,
+      "last_timestamp_s": 14.999999999999725,
+      "recorded_duration_s": 15.0,
+      "time_weighted_axis_rmse_mm": {
+        "X": 0.6376910508800279,
+        "Y": 1.8069437368203465,
+        "Z": 3.0083062945208034
+      },
+      "time_weighted_vector_rmse_mm": 3.5667355251070267,
+      "axis_min_mm": {
+        "X": -0.9263753890991211,
+        "Y": -0.8667632937431335,
+        "Z": -45.96622288227081
+      },
+      "axis_max_mm": {
+        "X": 3.3408403396606445,
+        "Y": 3.8364166393876076,
+        "Z": 0.4472583532333374
+      }
+    }
+  ],
+  "peg": [
+    {
+      "method": "WAM",
+      "source": "peg_step20000_20261020_094400/wam_none/episode_000001/physics_steps.npz",
+      "samples": 12000,
+      "first_timestamp_s": 0.005,
+      "last_timestamp_s": 60.00000000001224,
+      "recorded_duration_s": 60.0,
+      "time_weighted_axis_rmse_mm": {
+        "X": 0.3589010616024441,
+        "Y": 0.7489420974303445,
+        "Z": 0.6501944824027377
+      },
+      "time_weighted_vector_rmse_mm": 1.0547403008654617,
+      "axis_min_mm": {
+        "X": -0.6943941116333008,
+        "Y": -0.023987144231796265,
+        "Z": -1.2896060943603516
+      },
+      "axis_max_mm": {
+        "X": 0.011742115020751953,
+        "Y": 0.9952746331691742,
+        "Z": -0.2961456775665283
+      }
+    },
+    {
+      "method": "CW-WAM",
+      "source": "peg_step20000_20261020_094400/cw_wam_none/episode_000000/physics_steps.npz",
+      "samples": 5733,
+      "first_timestamp_s": 0.005,
+      "last_timestamp_s": 28.66499999999858,
+      "recorded_duration_s": 28.665,
+      "time_weighted_axis_rmse_mm": {
+        "X": 0.12224025759483938,
+        "Y": 0.4191495471782799,
+        "Z": 0.44339164691957733
+      },
+      "time_weighted_vector_rmse_mm": 0.6222741968253936,
+      "axis_min_mm": {
+        "X": -0.3764033317565918,
+        "Y": -1.3464614748954773,
+        "Z": -0.898316502571106
+      },
+      "axis_max_mm": {
+        "X": 0.020325183868408203,
+        "Y": 0.07059425115585327,
+        "Z": -0.014975666999816895
+      }
+    }
+  ]
+}
