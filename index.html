@@ -9,7 +9,10 @@
   <meta property="og:type" content="website"><meta property="og:url" content="https://cw-wam-project.github.io/">
   <meta property="og:image" content="https://cw-wam-project.github.io/assets/images/overview-poster.jpg"><meta property="og:image:alt" content="CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261028-wiping-layout2"><script src="script.js?v=20260928-previews1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261029-simtabs1"><script src="script.js?v=20261029-simtabs1" defer></script>
+  <script src="figure-tabs.js?v=20261029-simtabs1" defer></script>
+  <script src="assets/data/peg-trajectory-data.js?v=20261029-simtabs1" defer></script>
+  <script src="trajectory-viewer.js?v=20261029-simtabs1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">CW-WAM</a>
@@ -107,8 +110,8 @@
     <section id="results" class="research-section results wrap" aria-labelledby="results-title">
       <h2 id="results-title">Task outcomes and execution quality</h2>
       <div class="result-tabs tab-strip" role="tablist" aria-label="Experiments">
-<button class="tab-button" type="button" id="result-tab-outcomes" role="tab" data-result="outcomes" aria-selected="true" aria-controls="result-outcomes" tabindex="0">Task outcomes</button>
-<button class="tab-button" type="button" id="result-tab-profiles" role="tab" data-result="profiles" aria-selected="false" aria-controls="result-profiles" tabindex="-1">Contact-force curves</button>
+<button class="tab-button" type="button" id="result-tab-outcomes" role="tab" data-result="outcomes" aria-selected="false" aria-controls="result-outcomes" tabindex="-1">Task outcomes</button>
+<button class="tab-button" type="button" id="result-tab-profiles" role="tab" data-result="profiles" aria-selected="true" aria-controls="result-profiles" tabindex="0">Contact-force curves</button>
 <button class="tab-button" type="button" id="result-tab-load" role="tab" data-result="load" aria-selected="false" aria-controls="result-load" tabindex="-1">Load-dependent lifting</button>
 <button class="tab-button" type="button" id="result-tab-feedback" role="tab" data-result="feedback" aria-selected="false" aria-controls="result-feedback" tabindex="-1">Force and torque tracking</button>
       </div>
@@ -119,19 +122,43 @@
       <noscript><style>.result-tabs{display:none}</style></noscript>
     </section>
     <section id="simulation" class="research-section simulation-section wrap" aria-labelledby="simulation-title">
-      <header class="simulation-intro"><h2 id="simulation-title">Simulation evaluation</h2><p>Selected rollout examples: one per method, not aggregate statistics.</p></header>
-      <div class="simulation-task"><h3>Whiteboard wiping</h3>
-<div class="simulation-task-layout"><div class="simulation-scenes">
-        <a href="assets/images/simulation/wiping-scene-01.png" target="_blank" rel="noopener"><img src="assets/images/simulation/wiping-scene-01.png" width="852" height="776" loading="lazy" alt="Whiteboard wiping simulation scene"></a>
-        <a href="assets/images/simulation/wiping-scene-02.png" target="_blank" rel="noopener"><img src="assets/images/simulation/wiping-scene-02.png" width="852" height="794" loading="lazy" alt="Whiteboard wiping simulation scene"></a>
+      <h2 id="simulation-title">Simulation evaluation</h2>
+      <div class="simulation-tabs result-tabs tab-strip" role="tablist" aria-label="Simulation evaluation">
+        <button class="tab-button" type="button" id="simulation-tab-profiles" role="tab" data-simulation="profiles" aria-selected="true" aria-controls="simulation-profiles" tabindex="0">Contact-force curves</button>
+        <button class="tab-button" type="button" id="simulation-tab-wiping" role="tab" data-simulation="wiping" aria-selected="false" aria-controls="simulation-wiping" tabindex="-1">Whiteboard wiping</button>
+        <button class="tab-button" type="button" id="simulation-tab-peg" role="tab" data-simulation="peg" aria-selected="false" aria-controls="simulation-peg" tabindex="-1">Peg-in-hole insertion</button>
       </div>
-<figure class="simulation-comparison"><a href="assets/images/simulation/wiping-comparison.png?v=20261028-pred-b" target="_blank" rel="noopener"><img src="assets/images/simulation/wiping-comparison.png?v=20261028-pred-b" width="3040" height="1710" loading="lazy" alt="Whiteboard wiping: measured contact force, model-predicted contact force, and wiping progress"></a><figcaption>Panel (a) shows recorded action-interval mean normal contact force; panel (b) shows model-predicted normal contact force; panel (c) shows wiping progress. WAM has no force prediction and is omitted from panel (b). The dotted line marks the 10 N reference.</figcaption></figure></div></div>
-      <div class="simulation-task"><h3>Peg-in-hole insertion</h3>
-<div class="simulation-task-layout"><div class="simulation-scenes">
-        <a href="assets/images/simulation/peg-scene-01.png" target="_blank" rel="noopener"><img src="assets/images/simulation/peg-scene-01.png" width="858" height="800" loading="lazy" alt="Peg-in-hole insertion simulation scene"></a>
-        <a href="assets/images/simulation/peg-scene-02.png" target="_blank" rel="noopener"><img src="assets/images/simulation/peg-scene-02.png" width="852" height="792" loading="lazy" alt="Peg-in-hole insertion simulation scene"></a>
+      <div id="simulation-profiles" class="simulation-panel" role="tabpanel" aria-labelledby="simulation-tab-profiles" tabindex="0">
+        <figure><a href="assets/images/simulation/simulation-contact-profiles.svg" target="_blank" rel="noopener"><img src="assets/images/simulation/simulation-contact-profiles.svg" loading="lazy" alt="Whiteboard wiping and peg insertion: scene images beside measured contact-force curves"></a><figcaption>Selected simulation rollouts. Wiping: action-interval mean normal contact force. Peg insertion: resultant contact force. Curves retain recorded simulation time; peg examples use different episodes and durations.</figcaption></figure>
       </div>
-<figure class="simulation-comparison"><a href="assets/images/simulation/peg-comparison.png" target="_blank" rel="noopener"><img src="assets/images/simulation/peg-comparison.png" width="3040" height="1520" loading="lazy" alt="Peg-in-hole insertion: WAM and CW-WAM contact force, insertion depth, and peg-center XY trajectory"></a><figcaption>WAM and CW-WAM share the same force, depth, and XY axes. Positive depth denotes insertion below the hole mouth. Each curve ends at its recorded rollout endpoint; the two examples use different episodes.</figcaption></figure></div></div>
+      <div id="simulation-wiping" class="simulation-panel" role="tabpanel" aria-labelledby="simulation-tab-wiping" tabindex="0">
+        <figure><a href="assets/images/simulation/wiping-supplementary.svg" target="_blank" rel="noopener"><img src="assets/images/simulation/wiping-supplementary.svg" loading="lazy" alt="Model-predicted normal contact force and percentage of stain removed for selected wiping rollouts"></a><figcaption>WAM has no wrench prediction. Dotted line: 10 N reference. Stain removed describes the cleared area in each selected rollout, not success rate across trials.</figcaption></figure>
+        <div class="simulation-wiping-details">
+          <a class="simulation-scene-detail" href="assets/images/simulation/wiping-scene-02.png" target="_blank" rel="noopener"><img src="assets/images/simulation/wiping-scene-02.png" loading="lazy" width="852" height="794" alt="Whiteboard wiping simulation scene"></a>
+          <div class="simulation-table-wrap"><table class="simulation-table"><caption>Wiping progress and contact force</caption><thead><tr><th scope="col">Method</th><th scope="col">Stain removed</th><th scope="col">Mean [N]</th><th scope="col">Peak [N]</th></tr></thead><tbody><tr><th scope="row"><span class="method-key method-0"></span>WAM</th><td>0.2%</td><td>7.46</td><td>17.10</td></tr>
+<tr><th scope="row"><span class="method-key method-1"></span>WAM + Wrench</th><td>57.7%</td><td>7.36</td><td>15.93</td></tr>
+<tr><th scope="row"><span class="method-key method-2"></span>CW-WAM</th><td>67.3%</td><td>10.79</td><td>17.51</td></tr>
+<tr><th scope="row"><span class="method-key method-3"></span>CW-WAM + Adm.</th><td>68.5%</td><td>8.42</td><td>17.69</td></tr></tbody></table><p class="simulation-caption">One rollout per method. Mean and peak use the recorded wiping phase, including contact gaps; the mean is time-weighted.</p></div>
+        </div>
+      </div>
+      <div id="simulation-peg" class="simulation-panel" role="tabpanel" aria-labelledby="simulation-tab-peg" tabindex="0">
+        <div class="trajectory-viewer" data-trajectory-viewer>
+          <h3>Peg-center trajectory</h3>
+          <div class="trajectory-toolbar">
+            <div class="trajectory-methods" role="group" aria-label="Trajectory methods"><button class="tab-button" type="button" data-trajectory-method="wam" aria-pressed="true"><span class="method-key method-0"></span>WAM</button><button class="tab-button" type="button" data-trajectory-method="cw_wam" aria-pressed="true"><span class="method-key method-2"></span>CW-WAM</button></div>
+            <div class="trajectory-views" role="group" aria-label="Trajectory view"><button class="tab-button" type="button" data-trajectory-view="orbit" aria-pressed="true">3D</button><button class="tab-button" type="button" data-trajectory-view="top" aria-pressed="false">XY</button><button class="tab-button" type="button" data-trajectory-view="front" aria-pressed="false">XZ</button><button class="tab-button" type="button" data-trajectory-reset>Reset</button><button class="tab-button" type="button" data-trajectory-zoom="out" aria-label="Zoom out">−</button><button class="tab-button" type="button" data-trajectory-zoom="in" aria-label="Zoom in">+</button></div>
+          </div>
+          <canvas data-trajectory-canvas tabindex="0" aria-label="Interactive peg-center trajectory in hole-frame XYZ coordinates, in millimeters. Drag or use arrow keys to rotate. Plus and minus zoom; Home resets the view.">Peg-center XYZ trajectory. Use the static trajectory figure below if the interactive view is unavailable.</canvas>
+          <p class="trajectory-help" data-trajectory-status>Drag to rotate · Focus and scroll to zoom · Point to a trajectory sample for values.</p>
+          <p class="simulation-caption">Hole-frame XYZ [mm]. Paths show the peg center; insertion depth below uses the peg tip. Each path ends at its recorded rollout endpoint.</p>
+          <noscript><p class="simulation-caption">The 3D view requires JavaScript. <a href="assets/images/simulation/peg-comparison.png">View the static trajectory and depth figure.</a></p></noscript>
+        </div>
+        <div class="simulation-peg-details">
+          <figure><a href="assets/images/simulation/peg-depth.svg" target="_blank" rel="noopener"><img src="assets/images/simulation/peg-depth.svg" loading="lazy" alt="WAM and CW-WAM insertion depth over simulation time, with the 30 mm target depth"></a><figcaption>Positive depth denotes insertion below the hole mouth. Dotted reference: 30 mm target depth.</figcaption></figure>
+          <figure class="simulation-video"><video controls playsinline preload="none" poster="assets/images/simulation/peg-rollout-poster.jpg" width="1280" height="720" aria-label="CW-WAM peg-in-hole simulation rollout"><source src="assets/videos/simulation-peg-cw-wam.mp4" type="video/mp4"><a href="assets/videos/simulation-peg-cw-wam.mp4">Video</a></video><figcaption>CW-WAM · Peg-in-hole insertion</figcaption></figure>
+        </div>
+      </div>
+      <noscript><style>.simulation-tabs,.trajectory-toolbar,.trajectory-help,[data-trajectory-canvas]{display:none}.simulation-panel{margin-top:36px}</style></noscript>
     </section>
     <section id="citation" class="research-section citation-section wrap" aria-labelledby="citation-title">
       <h2 id="citation-title">Citation</h2>

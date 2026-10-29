@@ -80,26 +80,3 @@ fullPlayers.forEach(video => {
   video.addEventListener('ended', syncPreviews);
 });
 syncPreviews();
-
-const tabs = [...document.querySelectorAll('[data-result]')];
-function selectFigure(key) {
-  tabs.forEach(tab => {
-    const active = tab.dataset.result === key;
-    tab.setAttribute('aria-selected', String(active));
-    tab.tabIndex = active ? 0 : -1;
-    document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
-  });
-}
-tabs.forEach((tab,index) => {
-  tab.addEventListener('click', () => selectFigure(tab.dataset.result));
-  tab.addEventListener('keydown', event => {
-    let next;
-    if (event.key === 'ArrowRight') next = (index+1)%tabs.length;
-    if (event.key === 'ArrowLeft') next = (index+tabs.length-1)%tabs.length;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = tabs.length-1;
-    if (next === undefined) return;
-    event.preventDefault();selectFigure(tabs[next].dataset.result);tabs[next].focus();
-  });
-});
-selectFigure('outcomes');

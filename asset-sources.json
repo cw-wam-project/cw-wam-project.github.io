@@ -96,7 +96,7 @@
       "operation": "Concatenate supplied trials 01–08 in order without re-encoding; original 8x playback preserved."
     }
   },
-  "presentation_revision": "20261028-sim-side1",
+  "presentation_revision": "20261029-simtabs1",
   "copy_source": "paper-copy-sources.json",
   "homepage_previews": {
     "peg": {
@@ -162,5 +162,22 @@
     "primary": "assets/images/simulation/wiping-comparison.png",
     "prediction": "assets/images/simulation/wiping-prediction.png",
     "note": "Panel b shows recorded predicted normal contact force for the three methods with predictions. WAM is omitted from b. Metrics unchanged."
+  },
+  "simulation_tabs": {
+    "generator": "cw-wam-franka/simulation/inference/plot_website_simulation_tabs.py",
+    "reference": "fig/Screenshot 2026-10-29 at 13.15.08.png",
+    "figures": [
+      "assets/images/simulation/simulation-contact-profiles.svg",
+      "assets/images/simulation/wiping-supplementary.svg",
+      "assets/images/simulation/peg-depth.svg"
+    ],
+    "trajectory_data": "assets/data/peg-trajectory-data.js",
+    "trajectory_definition": "Full recorded peg geometric center XYZ in hole frame, millimeters; 900 WAM / 430 CW-WAM samples. Tip depth is separate. Equal spatial scale. No invented geometry or reconstructed values.",
+    "scope": "Selected single rollouts from original NPZ sources; no smoothing, time warping, across-trial statistics, or success-rate inference. No demo-median curve or phase compression from the design reference.",
+    "video": {
+      "file": "assets/videos/simulation-peg-cw-wam.mp4",
+      "source": "cw-wam-franka/simulation/inference/outputs/peg_step20000_20261020_094400/cw_wam_none/episode_000000/front_rollout.mp4",
+      "operation": "Byte-identical copy; first-frame poster extracted with ffmpeg."
+    }
   }
 }
